@@ -101,3 +101,25 @@ export default function Home() {
     </div>
   );
 }
+import { getPosts } from '@faustwp/core';
+
+export default async function PostsPage() {
+  const { data } = await getPosts();
+
+  return (
+    <main className="p-8">
+      <h1 className="text-3xl font-bold mb-4">Blogginlägg</h1>
+      <ul>
+        {data?.posts?.nodes?.map((post) => (
+          <li key={post.id} className="mb-4">
+            <h2 className="text-xl font-semibold">{post.title}</h2>
+            <div
+              className="prose"
+              dangerouslySetInnerHTML={{ __html: post.excerpt }}
+            />
+          </li>
+        ))}
+      </ul>
+    </main>
+  );
+}
