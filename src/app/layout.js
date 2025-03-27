@@ -1,18 +1,11 @@
-import './globals.css';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata = {
-  title: 'Faust Blogg',
-  description: 'En WordPress-driven React-blogg',
-};
+import { FaustProvider } from '@faustwp/core';
+import client from '../client';
 
 export default function RootLayout({ children }) {
   return (
     <html lang="sv">
-      <body className={inter.className}>
-        {children}
+      <body>
+        <FaustProvider client={client}>{children}</FaustProvider>
       </body>
     </html>
   );

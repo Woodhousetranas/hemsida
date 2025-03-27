@@ -1,3 +1,10 @@
-import { getApolloClient } from '@faustwp/core';
+import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 
-export const client = getApolloClient();
+const client = new ApolloClient({
+  link: new HttpLink({
+    uri: `${process.env.NEXT_PUBLIC_WORDPRESS_URL}/graphql`,
+  }),
+  cache: new InMemoryCache(),
+});
+
+export default client;
