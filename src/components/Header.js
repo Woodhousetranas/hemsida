@@ -24,7 +24,6 @@ export default function Header() {
         <Link href="/posts">Posts</Link>
       </nav>
       <div className={styles.controls}>
-        {/* DarkModeToggle removed */}
         <button className={styles.hamburger} onClick={toggleMenu}>
           &#9776;
         </button>
