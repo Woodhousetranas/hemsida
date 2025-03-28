@@ -1,7 +1,13 @@
 // /src/components/Footer.js
 export default function Footer() {
   return (
-    <footer style={{ padding: '1rem', textAlign: 'center', background: '#f5f5f5', borderTop: '1px solid #ddd' }}>
+    <footer style={{
+      padding: '1rem',
+      textAlign: 'center',
+      background: 'var(--color-surface)',
+      borderTop: '1px solid #ddd',
+      marginTop: '2rem'
+    }}>
       <p>&copy; {new Date().getFullYear()} Wood House AB. All rights reserved.</p>
       <nav>
         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>

@@ -1,18 +1,23 @@
 /* /src/components/Header.module.css */
 
 .header {
-  background-color: #fff;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--color-surface);
+  padding: 1.5rem 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.logo {
+  margin-bottom: 1rem;
 }
 
 .logo a {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #0070f3;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -22,49 +27,75 @@
 }
 
 .nav a {
+  position: relative;
   font-size: 1rem;
   font-weight: 500;
+  color: var(--color-text);
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 0.25rem 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
 }
 
 .nav a:hover {
-  color: #005bb5;
   transform: scale(1.05);
+  color: var(--color-primary);
 }
 
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.nav a:hover::after {
+  width: 100%;
 }
 
 .hamburger {
+  display: none;
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
+  margin-top: 1rem;
+}
+
+.mobileMenu {
   display: none;
 }
 
-/* Responsive styles for mobile devices */
 @media (max-width: 768px) {
   .nav {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px; /* Adjust based on header height */
-    left: 0;
-    right: 0;
-    background: #fff;
-    padding: 1rem;
-    gap: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  .navOpen {
-    display: flex;
   }
   .hamburger {
     display: block;
+  }
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 70px;
+    right: 2rem;
+    background-color: var(--color-surface);
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 10;
+  }
+  .mobileMenu a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .mobileMenu a:hover {
+    color: var(--color-primary);
   }
 }

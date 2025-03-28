@@ -1,49 +1,58 @@
 'use client';
 
+import { useParams } from 'next/navigation';
 import { gql, useQuery, ApolloProvider } from '@apollo/client';
-import Link from 'next/link';
 import client from '../../../client';
+import styles from './Post.module.css'; // ← Importera CSS-modulen
+import Link from 'next/link';
 
-const GET_POSTS = gql`
-  query GetPosts {
-    posts {
-      nodes {
-        id
-        title
-        excerpt
-        slug
-      }
+const GET_POST_BY_SLUG = gql`
+  query GetPostBySlug($slug: ID!) {
+    post(id: $slug, idType: SLUG) {
+      id
+      title
+      content
+      date
     }
   }
 `;
 
-export default function PostsPage() {
+export default function PostPage() {
+  const { slug } = useParams();
+
   return (
     <ApolloProvider client={client}>
-      <Posts />
+      <SinglePost slug={slug} />
     </ApolloProvider>
   );
 }
 
-function Posts() {
-  const { loading, error, data } = useQuery(GET_POSTS);
+function SinglePost({ slug }) {
+  const { loading, error, data } = useQuery(GET_POST_BY_SLUG, {
+    variables: { slug },
+  });
 
-  if (loading) return <p>Loading posts...</p>;
-  if (error) return <p>Error fetching posts: {error.message}</p>;
+  if (loading) return <p>Loading post...</p>;
+  if (error) return <p>Error fetching post: {error.message}</p>;
+  if (!data?.post) return <p>Post not found.</p>;
+
+  const post = data.post;
 
   return (
-    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Blog Posts</h1>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {data?.posts?.nodes?.map((post) => (
-          <li key={post.id} style={{ marginBottom: '1.5rem' }}>
-            <Link href={`/posts/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <h2 style={{ fontSize: '1.5rem' }}>{post.title}</h2>
-              <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <main className={styles.container}>
+      <h1 className={styles.title}>{post.title}</h1>
+      {post.date && (
+        <p className={styles.date}>
+          Published on: {new Date(post.date).toLocaleDateString()}
+        </p>
+      )}
+      <article
+        className={styles.content}
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
+      <Link href="/posts" className={styles.backLink}>
+        Back to Posts
+      </Link>
     </main>
   );
 }

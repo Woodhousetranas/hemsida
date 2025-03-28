@@ -1,37 +1,85 @@
 /* /src/app/globals.css */
 
-/* Reset styles */
-*,
-*::before,
-*::after {
+/* CSS Reset */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Base styles */
-html,
+/* Variabler för enhetlig design */
+:root {
+  --font-family: 'Inter', sans-serif;
+  --color-primary: #0D47A1;       /* Djup blå */
+  --color-primary-light: #5472d3; /* Ljusare blå */
+  --color-secondary: #FF6F00;     /* Accent, t ex orange */
+  --color-background: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-text: #212121;
+  --max-width: 1200px;
+}
+
+/* Basstilar */
+html {
+  font-size: 16px;
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
   line-height: 1.6;
 }
 
-/* Links */
+/* Länkar */
 a {
-  color: #0070f3;
+  color: var(--color-primary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 a:hover {
-  color: #005bb5;
+  color: var(--color-primary-light);
 }
 
-/* Container class */
+/* Container-klass */
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+/* Rubriker */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+/* Paragrafer */
+p {
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+/* Knappar */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background: var(--color-primary-light);
+}
+
+/* Utility-klasser (valfritt) */
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
