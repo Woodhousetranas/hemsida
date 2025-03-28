@@ -1,88 +1,37 @@
 /* /src/app/globals.css */
 
-/* Base styles */
-html, body {
-  padding: 0;
+/* Reset styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+/* Base styles */
+html,
+body {
   font-family: 'Inter', sans-serif;
   background-color: #f9f9f9;
   color: #333;
+  line-height: 1.6;
 }
 
+/* Links */
 a {
   color: #0070f3;
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  transition: color 0.3s ease;
 }
 
 a:hover {
   color: #005bb5;
 }
 
-/* Container */
+/* Container class */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-}
-
-/* Header styles */
-header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 1rem 0;
-  margin-bottom: 2rem;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-/* Section styling */
-section {
-  margin-bottom: 3rem;
-}
-
-h1, h2, h3 {
-  color: #222;
-}
-
-/* Button example (om du vill använda) */
-.button {
-  background-color: #0070f3;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.button:hover {
-  background-color: #005bb5;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-/* Dark Mode Styles */
-:root {
-  --bg-color: #f9f9f9;
-  --text-color: #333;
-}
-
-.dark {
-  --bg-color: #222;
-  --text-color: #eee;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
 }

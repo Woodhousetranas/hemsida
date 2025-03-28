@@ -1,8 +1,8 @@
-import { withFaust } from '@faustwp/core';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  experimental: {
+    turbo: false, // disable Turbopack
+  },
 };
 
-export default withFaust(nextConfig);
+export default nextConfig;

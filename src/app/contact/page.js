@@ -17,12 +17,21 @@ export default function Contact() {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would send the form data to your API or email service.
-    console.log(form);
-    setStatus('Your message has been sent!');
-    setForm({ name: '', email: '', subject: '', message: '' });
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const result = await res.json();
+      setStatus(result.message);
+      setForm({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus('Submission failed, please try again.');
+    }
   };
 
   return (

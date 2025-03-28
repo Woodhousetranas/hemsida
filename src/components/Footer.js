@@ -1,9 +1,7 @@
 // /src/components/Footer.js
-import styles from './Footer.module.css';
-
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer style={{ padding: '1rem', textAlign: 'center', background: '#f5f5f5', borderTop: '1px solid #ddd' }}>
       <p>&copy; {new Date().getFullYear()} Wood House AB. All rights reserved.</p>
       <nav>
         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>

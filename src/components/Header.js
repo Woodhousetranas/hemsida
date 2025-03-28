@@ -1,11 +1,20 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 import styles from './Header.module.css';
-import DarkModeToggle from './DarkModeToggle';
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
+      <div className={styles.logo}>
+        <Link href="/">Wood House AB</Link>
+      </div>
+      <nav className={menuOpen ? `${styles.nav} ${styles.navOpen}` : styles.nav}>
         <Link href="/">Home</Link>
         <Link href="/about-us">About Us</Link>
         <Link href="/team">Team</Link>
@@ -14,7 +23,12 @@ export default function Header() {
         <Link href="/contact">Contact</Link>
         <Link href="/posts">Posts</Link>
       </nav>
-      <DarkModeToggle />
+      <div className={styles.controls}>
+        {/* DarkModeToggle removed */}
+        <button className={styles.hamburger} onClick={toggleMenu}>
+          &#9776;
+        </button>
+      </div>
     </header>
   );
 }

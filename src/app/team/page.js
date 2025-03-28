@@ -6,19 +6,46 @@ import styles from './Team.module.css';
 const teamMembers = [
   {
     id: 1,
-    name: 'Alice Johnson',
-    title: 'CEO',
-    bio: 'Alice has over 20 years of experience in the wood industry and leads our company with a clear vision.',
-    image: '/images/alice.jpg', // Se till att bilden finns i public/images/
+    name: 'Fredrik',
+    title: 'VD',
+    bio: 'Fredrik leder företaget med vision och erfarenhet.',
+    image: '/images/fredrik.jpg',
   },
   {
     id: 2,
-    name: 'Bob Smith',
-    title: 'CTO',
-    bio: 'Bob drives our technology department with innovative ideas and a passion for excellence.',
-    image: '/images/bob.jpg',
+    name: 'Mattias',
+    title: 'vVD',
+    bio: 'Mattias stödjer VD med strategiskt och operativt ledarskap.',
+    image: '/images/mattias.jpg',
   },
-  // Lägg till fler teammedlemmar vid behov
+  {
+    id: 3,
+    name: 'Christopher',
+    title: 'Produktions- och planeringsansvarig',
+    bio: 'Christopher ansvarar för produktion och planering.',
+    image: '/images/christopher.jpg',
+  },
+  {
+    id: 4,
+    name: 'Ponti',
+    title: 'Driftansvarig produktion',
+    bio: 'Ponti ser till att produktionsdriften flyter smidigt.',
+    image: '/images/ponti.jpg',
+  },
+  {
+    id: 5,
+    name: 'Bengt',
+    title: 'Key Account Manager',
+    bio: 'Bengt hanterar nyckelkunder och ser till att våra relationer är starka.',
+    image: '/images/bengt.jpg',
+  },
+  {
+    id: 6,
+    name: 'Olle',
+    title: 'Lager/Logistik',
+    bio: 'Olle ansvarar för lager och logistik.',
+    image: '/images/olle.jpg',
+  },
 ];
 
 export default function Team() {
@@ -26,10 +53,14 @@ export default function Team() {
 
   return (
     <main className={styles.container}>
-      <h1 className={styles.title}>Our Team</h1>
+      <h1 className={styles.title}>Vårt Team</h1>
       <div className={styles.grid}>
         {teamMembers.map((member) => (
-          <div key={member.id} className={styles.card} onClick={() => setSelectedMember(member)}>
+          <div
+            key={member.id}
+            className={styles.card}
+            onClick={() => setSelectedMember(member)}
+          >
             <img src={member.image} alt={member.name} className={styles.image} />
             <h2>{member.name}</h2>
             <p>{member.title}</p>
@@ -38,12 +69,22 @@ export default function Team() {
       </div>
 
       {selectedMember && (
-        <div className={styles.modalOverlay} onClick={() => setSelectedMember(null)}>
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setSelectedMember(null)}
+        >
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeButton} onClick={() => setSelectedMember(null)}>
+            <button
+              className={styles.closeButton}
+              onClick={() => setSelectedMember(null)}
+            >
               Close
             </button>
-            <img src={selectedMember.image} alt={selectedMember.name} className={styles.modalImage} />
+            <img
+              src={selectedMember.image}
+              alt={selectedMember.name}
+              className={styles.modalImage}
+            />
             <h2>{selectedMember.name}</h2>
             <h3>{selectedMember.title}</h3>
             <p>{selectedMember.bio}</p>
