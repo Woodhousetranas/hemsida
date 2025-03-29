@@ -1,36 +1,13 @@
 'use client';
 
+import styles from '@/styles/theme.module.css';
+
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      style={{
-        padding: '4rem 1rem',
-        backgroundColor: 'var(--color-light)',
-        textAlign: 'center'
-      }}
-    >
-      <h2
-        style={{
-          fontFamily: 'Bebas Neue, sans-serif',
-          fontSize: '2rem',
-          color: 'var(--color-heading)',
-          marginBottom: '1.5rem'
-        }}
-      >
-        About Wood House AB
-      </h2>
+    <section className={`${styles.section} ${styles.sectionLight}`} id="about">
+      <h2 className={styles.heading}>About Wood House AB</h2>
 
-      <p
-        style={{
-          maxWidth: '800px',
-          margin: '0 auto',
-          fontSize: '1.1rem',
-          lineHeight: 1.7,
-          fontFamily: 'Inter, sans-serif',
-          color: 'var(--color-text)'
-        }}
-      >
+      <p className={styles.paragraph}>
         Wood House AB is a Swedish manufacturer of high-performance table tennis blades.
         We are proud producers behind some of the most respected brands in the sport:
         <strong> Yasaka</strong>, <strong> Donic</strong>, and

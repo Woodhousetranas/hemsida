@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from '@/styles/theme.module.css';
 
 const products = [
   {
@@ -23,17 +24,8 @@ const products = [
 
 export default function ProductsPreview() {
   return (
-    <section style={{ padding: '4rem 1rem', textAlign: 'center' }}>
-      <h2
-        style={{
-          fontFamily: 'Bebas Neue, sans-serif',
-          fontSize: '2rem',
-          color: 'var(--color-heading)',
-          marginBottom: '2rem'
-        }}
-      >
-        Popular Products
-      </h2>
+    <section className={styles.section}>
+      <h2 className={styles.heading}>Popular Products</h2>
 
       <div
         style={{

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from '@/styles/theme.module.css';
 
 const brands = [
   {
@@ -23,22 +24,17 @@ const brands = [
 
 export default function BrandsSection() {
   return (
-    <section style={{ padding: '4rem 1rem', textAlign: 'center' }}>
-      <h2 style={{
-        fontFamily: 'Bebas Neue, sans-serif',
-        fontSize: '2rem',
-        color: 'var(--color-heading)',
-        marginBottom: '2rem'
-      }}>
-        Our Brands
-      </h2>
+    <section className={styles.section}>
+      <h2 className={styles.heading}>Our Brands</h2>
 
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        gap: '2rem'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          gap: '2rem'
+        }}
+      >
         {brands.map((brand) => (
           <Link
             key={brand.name}
@@ -61,13 +57,15 @@ export default function BrandsSection() {
               height={60}
               style={{ objectFit: 'contain' }}
             />
-            <p style={{
-              marginTop: '0.75rem',
-              fontSize: '0.95rem',
-              color: 'var(--color-text)',
-              fontWeight: 500,
-              fontFamily: 'Inter, sans-serif'
-            }}>
+            <p
+              style={{
+                marginTop: '0.75rem',
+                fontSize: '0.95rem',
+                color: 'var(--color-text)',
+                fontWeight: 500,
+                fontFamily: 'Inter, sans-serif'
+              }}
+            >
               {brand.name}
             </p>
           </Link>
@@ -77,7 +75,7 @@ export default function BrandsSection() {
       <style jsx>{`
         .brand-tile:hover {
           transform: scale(1.05);
-          box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
       `}</style>
     </section>

@@ -1,0 +1,68 @@
+/* /src/styles/theme.module.css */
+
+.section {
+    padding: 4rem 1rem;
+    text-align: center;
+    background-color: var(--color-background);
+  }
+  
+  .sectionLight {
+    background-color: var(--color-light);
+  }
+  
+  .sectionDark {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+  }
+  
+  .heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--color-heading);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .paragraph {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .btnPrimary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+  }
+  
+  .btnPrimary:hover {
+    opacity: 0.9;
+  }
+  
+  .btnSecondary {
+    background-color: var(--color-white);
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+  }
+  
+  .textWhite {
+    color: var(--color-white);
+  }
+  
+  .textAccent {
+    color: var(--color-accent);
+  }
+  
+  .textCenter {
+    text-align: center;
+  }
+  
