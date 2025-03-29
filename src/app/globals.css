@@ -24,12 +24,25 @@ html {
   font-size: 16px;
 }
 
+/* Brödtext – Inter */
 body {
-  font-family: var(--font-family);
-  background-color: var(--color-background);
-  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+  color: #222;
+  font-size: 16px;
   line-height: 1.6;
 }
+
+/* Rubriker & meny – Bebas Neue */
+h1, h2, h3, h4, h5, h6,
+nav a,
+.header a,
+.footer a.title {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
 
 /* Länkar */
 a {

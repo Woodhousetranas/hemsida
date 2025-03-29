@@ -1,96 +1,106 @@
 'use client';
 
-import { useState } from 'react';
-import styles from './Team.module.css';
+import Image from 'next/image';
 
-const teamMembers = [
+const team = [
   {
-    id: 1,
     name: 'Fredrik',
-    title: 'VD',
-    bio: 'Fredrik leder företaget med vision och erfarenhet.',
-    image: '/images/fredrik.jpg',
+    title: 'CEO',
+    image: '/images/fredrik.jpg'
   },
   {
-    id: 2,
     name: 'Mattias',
-    title: 'vVD',
-    bio: 'Mattias stödjer VD med strategiskt och operativt ledarskap.',
-    image: '/images/mattias.jpg',
+    title: 'Deputy CEO',
+    image: '/images/mattias.jpg'
   },
   {
-    id: 3,
     name: 'Christopher',
-    title: 'Produktions- och planeringsansvarig',
-    bio: 'Christopher ansvarar för produktion och planering.',
-    image: '/images/christopher.jpg',
+    title: 'Production & Planning Manager',
+    image: '/images/christopher.jpg'
   },
   {
-    id: 4,
     name: 'Ponti',
-    title: 'Driftansvarig produktion',
-    bio: 'Ponti ser till att produktionsdriften flyter smidigt.',
-    image: '/images/ponti.jpg',
+    title: 'Production Operations Manager',
+    image: '/images/ponti.jpg'
   },
   {
-    id: 5,
     name: 'Bengt',
     title: 'Key Account Manager',
-    bio: 'Bengt hanterar nyckelkunder och ser till att våra relationer är starka.',
-    image: '/images/bengt.jpg',
+    image: '/images/bengt.jpg'
   },
   {
-    id: 6,
     name: 'Olle',
-    title: 'Lager/Logistik',
-    bio: 'Olle ansvarar för lager och logistik.',
-    image: '/images/olle.jpg',
-  },
+    title: 'Players Manager & Marketing',
+    image: '/images/olle.jpg'
+  }
 ];
 
-export default function Team() {
-  const [selectedMember, setSelectedMember] = useState(null);
-
+export default function TeamPage() {
   return (
-    <main className={styles.container}>
-      <h1 className={styles.title}>Vårt Team</h1>
-      <div className={styles.grid}>
-        {teamMembers.map((member) => (
-          <div
-            key={member.id}
-            className={styles.card}
-            onClick={() => setSelectedMember(member)}
-          >
-            <img src={member.image} alt={member.name} className={styles.image} />
-            <h2>{member.name}</h2>
-            <p>{member.title}</p>
+    <main style={{ padding: '4rem 1rem', maxWidth: '1100px', margin: '0 auto' }}>
+      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <h1 style={{
+          fontFamily: 'Bebas Neue, sans-serif',
+          fontSize: '2.5rem',
+          color: '#0D47A1',
+          textTransform: 'uppercase',
+          marginBottom: '0.5rem'
+        }}>
+          Our Team
+        </h1>
+        <h2 style={{
+          fontFamily: 'Bebas Neue, sans-serif',
+          fontSize: '1.1rem',
+          color: '#444',
+          textTransform: 'uppercase',
+          letterSpacing: '0.5px'
+        }}>
+          Made in Sweden – Powered by Wood House
+        </h2>
+      </div>
+
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+        gap: '2.5rem'
+      }}>
+        {team.map(member => (
+          <div key={member.name} style={{
+            textAlign: 'center',
+            background: '#fff',
+            borderRadius: '12px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+            padding: '1.5rem'
+          }}>
+            <div style={{ marginBottom: '1rem' }}>
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={160}
+                height={160}
+                style={{
+                  borderRadius: '50%',
+                  objectFit: 'cover'
+                }}
+              />
+            </div>
+            <h3 style={{
+              fontFamily: 'Bebas Neue, sans-serif',
+              fontSize: '1.4rem',
+              marginBottom: '0.3rem'
+            }}>
+              {member.name}
+            </h3>
+            <p style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '0.95rem',
+              color: '#666'
+            }}>
+              {member.title}
+            </p>
           </div>
         ))}
       </div>
-
-      {selectedMember && (
-        <div
-          className={styles.modalOverlay}
-          onClick={() => setSelectedMember(null)}
-        >
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <button
-              className={styles.closeButton}
-              onClick={() => setSelectedMember(null)}
-            >
-              Close
-            </button>
-            <img
-              src={selectedMember.image}
-              alt={selectedMember.name}
-              className={styles.modalImage}
-            />
-            <h2>{selectedMember.name}</h2>
-            <h3>{selectedMember.title}</h3>
-            <p>{selectedMember.bio}</p>
-          </div>
-        </div>
-      )}
     </main>
   );
 }

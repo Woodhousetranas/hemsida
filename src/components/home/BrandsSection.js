@@ -1,44 +1,65 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
 const brands = [
-  { name: 'Yasaka', logo: '/images/yasaka-logo.png', href: '/yasaka' },
-  { name: 'Donic', logo: '/images/donic-logo.png', href: '/donic' },
-  { name: 'Nittaku', logo: '/images/nittaku-logo.png', href: '/nittaku' }
+  {
+    name: 'Yasaka',
+    logo: '/images/yasaka-logo.png'
+  },
+  {
+    name: 'Donic',
+    logo: '/images/donic-logo.png'
+  },
+  {
+    name: 'Nittaku',
+    logo: '/images/nittaku-logo.png'
+  }
 ];
 
 export default function BrandsSection() {
   return (
-    <section className="container" style={{ padding: '4rem 1rem' }}>
-      <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '2rem' }}>Our Brands</h2>
+    <section style={{ padding: '4rem 1rem', backgroundColor: '#f9f9f9' }}>
+      <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+        <h2 style={{
+          fontFamily: 'Bebas Neue, sans-serif',
+          fontSize: '2rem',
+          textTransform: 'uppercase',
+          letterSpacing: '0.6px',
+          color: '#0D47A1'
+        }}>
+          Our Brands
+        </h2>
+      </div>
+
       <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-        gap: '2rem',
-        textAlign: 'center'
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '3rem',
+        flexWrap: 'wrap',
+        maxWidth: '900px',
+        margin: '0 auto'
       }}>
-        {brands.map(brand => (
-          <Link href={brand.href} key={brand.name} style={{
+        {brands.map((brand) => (
+          <div key={brand.name} style={{
+            background: '#fff',
+            padding: '2rem',
+            borderRadius: '10px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
             display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center',
-            textDecoration: 'none',
-            color: 'inherit'
+            justifyContent: 'center',
+            width: '220px',
+            height: '130px'
           }}>
-            <div style={{
-              background: '#fff',
-              borderRadius: '8px',
-              boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-              padding: '2rem',
-              transition: 'transform 0.3s ease',
-              width: '100%'
-            }}>
-              <Image src={brand.logo} alt={brand.name} width={150} height={60} />
-              <h3 style={{ marginTop: '1rem' }}>{brand.name}</h3>
-            </div>
-          </Link>
+            <Image
+              src={brand.logo}
+              alt={brand.name}
+              width={120}
+              height={60}
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         ))}
       </div>
     </section>

@@ -5,25 +5,40 @@ import Link from 'next/link';
 export default function CTASection() {
   return (
     <section style={{
-      background: '#0D47A1',
+      backgroundColor: '#0D47A1',
       color: '#fff',
       padding: '4rem 1rem',
       textAlign: 'center'
     }}>
-      <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Interested in Collaboration?</h2>
-      <p style={{ fontSize: '1.2rem', marginBottom: '2rem' }}>
-        Reach out to us for partnership, distribution or OEM production.
-      </p>
-      <Link href="/contact" style={{
-        background: '#fff',
-        color: '#0D47A1',
-        padding: '0.75rem 1.5rem',
-        borderRadius: '4px',
-        fontWeight: 'bold',
-        textDecoration: 'none'
-      }}>
-        Contact Us
-      </Link>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <h2 style={{
+          fontFamily: 'Bebas Neue, sans-serif',
+          fontSize: '2rem',
+          marginBottom: '1rem',
+          textTransform: 'uppercase',
+          letterSpacing: '0.5px'
+        }}>
+          Interested in a collaboration?
+        </h2>
+        <p style={{
+          fontSize: '1.1rem',
+          fontFamily: 'Inter, sans-serif',
+          marginBottom: '2rem'
+        }}>
+          Reach out to us for partnership, distribution or OEM production.
+        </p>
+        <Link href="/contact" style={{
+          backgroundColor: '#fff',
+          color: '#0D47A1',
+          padding: '0.8rem 1.6rem',
+          borderRadius: '6px',
+          textDecoration: 'none',
+          fontWeight: 600,
+          fontFamily: 'Inter, sans-serif'
+        }}>
+          Contact Us
+        </Link>
+      </div>
     </section>
   );
 }
