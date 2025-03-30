@@ -12,8 +12,8 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <BrandsSection />
-      <ProductsPreview />
       <CTASection />
+      <ProductsPreview />
     </>
   );
 }

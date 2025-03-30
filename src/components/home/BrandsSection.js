@@ -8,76 +8,62 @@ const brands = [
   {
     name: 'Yasaka',
     logo: '/images/yasaka-logo.png',
-    href: '/agencies/yasaka'
+    link: '/agencies/yasaka',
+    tagline: 'Japanese-Swedish excellence',
   },
   {
     name: 'Donic',
     logo: '/images/donic-logo.png',
-    href: '/agencies/donic'
+    link: '/agencies/donic',
+    tagline: 'German technology, world-class performance',
   },
   {
     name: 'Nittaku',
     logo: '/images/nittaku-logo.png',
-    href: '/agencies/nittaku'
-  }
+    link: '/agencies/nittaku',
+    tagline: 'Japan’s premier table tennis brand',
+  },
 ];
 
 export default function BrandsSection() {
   return (
-    <section className={styles.section}>
-      <h2 className={styles.heading}>Our Brands</h2>
+    <section className={styles.sectionLight}>
+      <div style={{ textAlign: 'center' }}>
+        <h2 className={styles.heading}>Our Brands</h2>
+      </div>
 
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          gap: '2rem'
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: '2rem',
+          maxWidth: '1000px',
+          margin: '2rem auto 0',
         }}
       >
         {brands.map((brand) => (
           <Link
+            href={brand.link}
             key={brand.name}
-            href={brand.href}
-            style={{
-              display: 'inline-block',
-              padding: '1.5rem 2rem',
-              background: 'var(--color-background)',
-              borderRadius: '10px',
-              boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
-              transition: 'all 0.2s ease',
-              textAlign: 'center'
-            }}
-            className="brand-tile"
+            className={styles.tile}
+            style={{ textDecoration: 'none', color: 'inherit' }}
           >
             <Image
               src={brand.logo}
               alt={brand.name}
-              width={140}
-              height={60}
-              style={{ objectFit: 'contain' }}
-            />
-            <p
+              width={160}
+              height={80}
               style={{
-                marginTop: '0.75rem',
-                fontSize: '0.95rem',
-                color: 'var(--color-text)',
-                fontWeight: 500,
-                fontFamily: 'Inter, sans-serif'
+                objectFit: 'contain',
+                marginBottom: '1rem',
+                filter: 'grayscale(100%)',
               }}
-            >
-              {brand.name}
-            </p>
+            />
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 600 }}>{brand.name}</h3>
+            <p style={{ fontSize: '0.9rem', color: '#666' }}>{brand.tagline}</p>
           </Link>
         ))}
       </div>
-
-      <style jsx>{`
-        .brand-tile:hover {
-          transform: scale(1.05);
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
     </section>
   );
 }

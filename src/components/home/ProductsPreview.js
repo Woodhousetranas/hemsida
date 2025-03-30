@@ -7,79 +7,74 @@ import styles from '@/styles/theme.module.css';
 const products = [
   {
     name: 'Ma Lin Soft Carbon',
-    image: '/images/malin-soft-carbon.jpg',
-    link: '/posts/ma-lin-soft-carbon'
+    image: '/images/blade1.jpg',
+    href: '/posts/ma-lin-soft-carbon',
+    description: 'High speed, exceptional control, premium craftsmanship.'
   },
   {
     name: 'Rakza XX',
-    image: '/images/rakza-xx.jpg',
-    link: '/posts/rakza-xx'
+    image: '/images/blade2.jpg',
+    href: '/posts/rakza-xx',
+    description: 'High speed, exceptional control, premium craftsmanship.'
   },
   {
     name: 'Sweden Extra',
-    image: '/images/sweden-extra.jpg',
-    link: '/posts/sweden-extra'
+    image: '/images/blade3.jpg',
+    href: '/posts/sweden-extra',
+    description: 'High speed, exceptional control, premium craftsmanship.'
   }
 ];
 
 export default function ProductsPreview() {
   return (
-    <section className={styles.section}>
-      <h2 className={styles.heading}>Popular Products</h2>
+    <section className={styles.sectionLight}>
+      <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+  <h2 className={styles.heading}>Popular Products</h2>
+</div>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem',
-          maxWidth: '1100px',
-          margin: '0 auto'
-        }}
-      >
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+        gap: '2rem',
+        maxWidth: '1000px',
+        margin: '0 auto'
+        
+      }}>
         {products.map((product) => (
           <Link
-            href={product.link}
             key={product.name}
-            style={{
-              display: 'block',
-              background: 'var(--color-background)',
-              borderRadius: '12px',
-              boxShadow: '0 4px 10px rgba(0,0,0,0.05)',
-              padding: '1.5rem',
-              textAlign: 'center',
-              transition: 'transform 0.2s ease'
-            }}
-            className="product-tile"
+            href={product.href}
+            className={styles.tile}
           >
             <Image
               src={product.image}
               alt={product.name}
               width={180}
-              height={120}
-              style={{
-                objectFit: 'contain',
-                marginBottom: '1rem'
-              }}
+              height={180}
+              className={styles.tileImage}
             />
-            <h3
-              style={{
-                fontFamily: 'Bebas Neue, sans-serif',
-                fontSize: '1.3rem',
-                color: 'var(--color-text)'
-              }}
-            >
+            <h3 style={{
+              fontSize: '1.1rem',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
+              marginTop: '0.8rem',
+              color: '#111',
+              textAlign: 'center'
+            }}>
               {product.name}
             </h3>
+            <p style={{
+              fontSize: '0.9rem',
+              color: '#666',
+              textAlign: 'center',
+              marginTop: '0.5rem'
+            }}>
+              {product.description}
+            </p>
           </Link>
         ))}
       </div>
-
-      <style jsx>{`
-        .product-tile:hover {
-          transform: scale(1.03);
-          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
     </section>
   );
 }

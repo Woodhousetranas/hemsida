@@ -1,106 +1,101 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
+import styles from '@/styles/theme.module.css';
+import TeamMemberModal from '@/components/TeamMemberModal';
 
 const team = [
   {
     name: 'Fredrik',
     title: 'CEO',
-    image: '/images/fredrik.jpg'
+    email: 'fredrik@woodhouse.se',
+    linkedin: 'https://se.linkedin.com/in/fredrikgustafssonwoodhouse',
+    image: '/images/fredrik.jpg',
+    description: 'Fredrik leads our team with vision, strategy, and Swedish precision.'
   },
   {
     name: 'Mattias',
     title: 'Deputy CEO',
-    image: '/images/mattias.jpg'
+    email: 'mattias@woodhouse.se',
+    linkedin: 'https://se.linkedin.com/in/mattias-rittmark-95b70897',
+    image: '/images/mattias.jpg',
+    description: 'Mattias ensures our operations run efficiently day to day.'
   },
   {
     name: 'Christopher',
-    title: 'Production & Planning Manager',
-    image: '/images/christopher.jpg'
+    title: 'Production Manager',
+    email: 'christopher@woodhouse.se',
+    image: '/images/christopher.jpg',
+    description: 'Responsible for our blades production and factory flow.'
   },
   {
     name: 'Ponti',
-    title: 'Production Operations Manager',
-    image: '/images/ponti.jpg'
+    title: 'Production Supervisor',
+    email: 'ponti@woodhouse.se',
+    image: '/images/ponti.jpg',
+    description: 'Leads day-to-day production with a sharp eye for detail.'
   },
   {
     name: 'Bengt',
     title: 'Key Account Manager',
-    image: '/images/bengt.jpg'
+    email: 'bengt@woodhouse.se',
+    linkedin: 'https://se.linkedin.com/in/bengt-gunnarsson-27b02b11',
+    image: '/images/bengt.jpg',
+    description: 'Keeps our customers happy and our brand growing.'
   },
   {
     name: 'Olle',
-    title: 'Players Manager & Marketing',
-    image: '/images/olle.jpg'
+    title: 'Player Manager & Marketing',
+    email: 'olle@woodhouse.se',
+    image: '/images/olle.jpg',
+    description: 'Leading #TeamYasaka & pushing our brands to new heights.'
   }
 ];
 
 export default function TeamPage() {
-  return (
-    <main style={{ padding: '4rem 1rem', maxWidth: '1100px', margin: '0 auto' }}>
-      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <h1 style={{
-          fontFamily: 'Bebas Neue, sans-serif',
-          fontSize: '2.5rem',
-          color: '#0D47A1',
-          textTransform: 'uppercase',
-          marginBottom: '0.5rem'
-        }}>
-          Our Team
-        </h1>
-        <h2 style={{
-          fontFamily: 'Bebas Neue, sans-serif',
-          fontSize: '1.1rem',
-          color: '#444',
-          textTransform: 'uppercase',
-          letterSpacing: '0.5px'
-        }}>
-          Made in Sweden – Powered by Wood House
-        </h2>
-      </div>
+  const [selectedMember, setSelectedMember] = useState(null);
 
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-        gap: '2.5rem'
-      }}>
-        {team.map(member => (
-          <div key={member.name} style={{
-            textAlign: 'center',
-            background: '#fff',
-            borderRadius: '12px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
-            padding: '1.5rem'
-          }}>
-            <div style={{ marginBottom: '1rem' }}>
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={160}
-                height={160}
-                style={{
-                  borderRadius: '50%',
-                  objectFit: 'cover'
-                }}
-              />
-            </div>
-            <h3 style={{
-              fontFamily: 'Bebas Neue, sans-serif',
-              fontSize: '1.4rem',
-              marginBottom: '0.3rem'
-            }}>
+  return (
+    <main className={styles.section}>
+      <h1 className={styles.heading}>Meet the Wood House Team</h1>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: '2rem',
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}
+      >
+        {team.map((member) => (
+          <div
+            key={member.name}
+            className={styles.tile}
+            style={{ cursor: 'pointer' }}
+            onClick={() => setSelectedMember(member)}
+          >
+            <Image
+              src={member.image}
+              alt={member.name}
+              width={150}
+              height={150}
+              style={{
+                borderRadius: '50%',
+                objectFit: 'cover',
+                marginBottom: '1rem'
+              }}
+            />
+            <h3 style={{ fontFamily: 'Bebas Neue', fontSize: '1.3rem', marginBottom: '0.25rem' }}>
               {member.name}
             </h3>
-            <p style={{
-              fontFamily: 'Inter, sans-serif',
-              fontSize: '0.95rem',
-              color: '#666'
-            }}>
-              {member.title}
-            </p>
+            <p style={{ fontSize: '0.9rem', color: 'var(--color-text)' }}>{member.title}</p>
           </div>
         ))}
       </div>
+
+      <TeamMemberModal member={selectedMember} onClose={() => setSelectedMember(null)} />
     </main>
   );
 }
