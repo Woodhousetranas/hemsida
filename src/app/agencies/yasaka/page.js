@@ -1,124 +1,88 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
+import styles from "@/styles/theme.module.css";
 
 export default function YasakaPage() {
   return (
     <main>
-      {/* Hero Section */}
-      <section style={{
-        position: 'relative',
-        height: '60vh',
-        backgroundImage: 'url(/images/yasaka-hero.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'rgba(0,0,0,0.5)'
-        }}></div>
-        <div style={{ zIndex: 1, textAlign: 'center' }}>
+      {/* Hero + Logo */}
+      <section
+        style={{
+          backgroundImage: "url('/images/yasaka-hero.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "60vh",
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "rgba(0,0,0,0.5)",
+            padding: "2rem",
+            borderRadius: "12px",
+          }}
+        >
           <Image
             src="/images/yasaka-logo.png"
             alt="Yasaka"
             width={200}
             height={80}
-            style={{ objectFit: 'contain', margin: '0 auto' }}
+            style={{ objectFit: "contain" }}
           />
-          <h1 style={{
-            marginTop: '1rem',
-            fontSize: '2rem',
-            color: '#fff',
-            fontFamily: 'Bebas Neue, sans-serif',
-            letterSpacing: '1px',
-            textTransform: 'uppercase'
-          }}>
-            Tradition & Innovation in Table Tennis
-          </h1>
         </div>
       </section>
 
-      {/* Brand Description */}
-      <section style={{
-        padding: '4rem 1rem',
-        maxWidth: '900px',
-        margin: '0 auto',
-        textAlign: 'center'
-      }}>
-        <h2 style={{
-          fontSize: '1.75rem',
-          fontFamily: 'Bebas Neue, sans-serif',
-          marginBottom: '1rem',
-          color: '#0D47A1'
-        }}>
-          About Yasaka
+      {/* Intro */}
+      <section className={styles.sectionLight}>
+        <h2 className={styles.sectionTitle}>
+          Yasaka – Japanese-Swedish Table Tennis Heritage
         </h2>
-        <p style={{
-          fontSize: '1.1rem',
-          lineHeight: 1.7,
-          fontFamily: 'Inter, sans-serif',
-          color: '#333'
-        }}>
-          Yasaka is one of the world’s most iconic brands in table tennis, combining Japanese precision with Swedish craftsmanship. Known for legendary rubbers like **Mark V** and **Rakza**, Yasaka continues to innovate while staying true to its roots.
+        <p
+          className={styles.paragraph}
+          style={{ maxWidth: "800px", margin: "0 auto" }}
+        >
+          Yasaka is a legendary brand known for its blend of Japanese precision
+          and Swedish blade craftsmanship. With iconic rubbers like Mark V and
+          the Rakza series, Yasaka has helped shape the history of modern table
+          tennis.
         </p>
       </section>
 
-      {/* Featured Products */}
-      <section style={{
-        padding: '2rem 1rem',
-        background: '#f9f9f9'
-      }}>
-        <div style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          textAlign: 'center'
-        }}>
-          <h3 style={{
-            fontFamily: 'Bebas Neue, sans-serif',
-            fontSize: '1.5rem',
-            color: '#0D47A1',
-            marginBottom: '2rem'
-          }}>
-            Featured Products
-          </h3>
+      {/* Filosofi */}
+      <section className={styles.sectionLight}>
+        <h2 className={styles.sectionTitle}>Our Philosophy</h2>
+        <p
+          className={styles.paragraph}
+          style={{ maxWidth: "800px", margin: "0 auto" }}
+        >
+          Yasaka blends cutting-edge rubber development from Japan with premium
+          blade production in Sweden. Every product is designed with
+          performance, durability, and feel in mind—trusted by world-class
+          professionals and passionate amateurs alike.
+        </p>
+      </section>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '2rem'
-          }}>
-            {[
-              { name: 'Rakza XX', image: '/images/rakza-xx.jpg' },
-              { name: 'Mark V', image: '/images/mark-v.jpg' },
-              { name: 'Ma Lin Soft Carbon', image: '/images/malin-soft-carbon.jpg' }
-            ].map((product) => (
-              <div key={product.name} style={{
-                background: '#fff',
-                padding: '1.5rem',
-                borderRadius: '10px',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
-              }}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={200}
-                  height={160}
-                  style={{ objectFit: 'contain', marginBottom: '1rem' }}
-                />
-                <h4 style={{
-                  fontFamily: 'Bebas Neue, sans-serif',
-                  fontSize: '1.2rem',
-                  color: '#333'
-                }}>
-                  {product.name}
-                </h4>
-              </div>
-            ))}
-          </div>
+      {/* CTA */}
+      <section className={styles.sectionDark}>
+        <h2 className={styles.sectionTitle}>Official Retailer</h2>
+        <p
+          className={styles.paragraph}
+          style={{ textAlign: "center", color: "#ddd" }}
+        >
+          Explore the full Yasaka range at our official retailer.
+        </p>
+        <div style={{ textAlign: "center", marginTop: "1rem" }}>
+          <Link
+            href="https://yasakatabletennis.com"
+            className={styles.btnPrimary}
+          >
+            Visit yasakatabletennis.com →
+          </Link>
         </div>
       </section>
     </main>

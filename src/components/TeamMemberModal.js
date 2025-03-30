@@ -1,68 +1,64 @@
-'use client';
+"use client";
 
-import styles from '@/styles/theme.module.css';
+import Image from "next/image";
+import styles from "@/styles/theme.module.css";
 
 export default function TeamMemberModal({ member, onClose }) {
   if (!member) return null;
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        inset: 0,
-        background: 'rgba(0,0,0,0.7)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 1000
-      }}
-      onClick={onClose}
-    >
-      <div
-        style={{
-          background: 'var(--color-white)',
-          padding: '2rem',
-          borderRadius: '12px',
-          maxWidth: '500px',
-          width: '90%',
-          textAlign: 'center',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-          position: 'relative'
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <h2 className={styles.heading}>{member.name}</h2>
-        <p className={styles.paragraph}>{member.title}</p>
+    <div className={styles.modalOverlay}>
+      <div className={styles.modal}>
+        <button className={styles.closeButton} onClick={onClose}>
+          ✕
+        </button>
 
-        {/* Klickbar e-post */}
-        <p className={styles.paragraph}>
-          <a
-            href={`mailto:${member.email}`}
-            style={{ color: 'var(--color-accent)', fontWeight: '500', textDecoration: 'none' }}
-          >
-            {member.email}
-          </a>
+        <Image
+          src={member.image}
+          alt={member.name}
+          width={180}
+          height={180}
+          style={{
+            borderRadius: "50%",
+            objectFit: "cover",
+            marginBottom: "1rem",
+          }}
+        />
+
+        <h2 style={{ fontSize: "1.6rem", marginBottom: "0.3rem" }}>
+          {member.name}
+        </h2>
+        <p style={{ color: "#666", fontWeight: 500, marginBottom: "1rem" }}>
+          {member.title}
         </p>
 
-        {/* LinkedIn-länk om den finns */}
-        {member.linkedin && (
-          <p className={styles.paragraph}>
+        <p className={styles.paragraph} style={{ marginBottom: "2rem" }}>
+          {member.description}
+        </p>
+
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}
+        >
+          <a
+            href={`mailto:${member.email}`}
+            className={styles.btnSecondary}
+            style={{ textAlign: "center" }}
+          >
+            📧 {member.email}
+          </a>
+
+          {member.linkedin && (
             <a
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}
+              className={styles.btnSecondary}
+              style={{ textAlign: "center" }}
             >
-              View LinkedIn Profile
+              🔗 LinkedIn Profile
             </a>
-          </p>
-        )}
-
-        <p className={styles.paragraph}>{member.description}</p>
-
-        <button onClick={onClose} className={styles.btnSecondary} style={{ marginTop: '1rem' }}>
-          Close
-        </button>
+          )}
+        </div>
       </div>
     </div>
   );

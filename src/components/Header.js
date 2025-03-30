@@ -1,32 +1,32 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from '@/styles/theme.module.css';
+import Link from "next/link";
+import Image from "next/image";
+import styles from "@/styles/theme.module.css";
 
 export default function Header() {
   return (
     <header
       style={{
-        padding: '2rem 1rem 1rem',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        borderBottom: '1px solid #eee',
-        background: '#fff',
-        position: 'sticky',
+        padding: "2rem 1rem 1rem",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderBottom: "1px solid #eee",
+        background: "#fff",
+        position: "sticky",
         top: 0,
         zIndex: 1000,
       }}
     >
       {/* Logo */}
-      <Link href="/" style={{ marginBottom: '1rem' }}>
+      <Link href="/" style={{ marginBottom: "1rem" }}>
         <Image
           src="/images/woodhouse-logo.png"
           alt="Wood House Logo"
           width={140}
           height={50}
-          style={{ objectFit: 'contain' }}
+          style={{ objectFit: "contain" }}
         />
       </Link>
 
