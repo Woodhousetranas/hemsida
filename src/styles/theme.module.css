@@ -356,3 +356,24 @@
   font-weight: 600;
   font-size: 1.1rem;
 }
+
+/* Carousel navigation overrides */
+.carouselWrapper :global(.swiper-button-next),
+.carouselWrapper :global(.swiper-button-prev) {
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+}
+
+.carouselWrapper :global(.swiper-button-next:hover),
+.carouselWrapper :global(.swiper-button-prev:hover) {
+  transform: scale(1.1);
+}
+
+.carouselWrapper :global(.swiper-pagination-bullet) {
+  background: #ccc;
+  opacity: 1;
+}
+
+.carouselWrapper :global(.swiper-pagination-bullet-active) {
+  background: var(--color-accent);
+}
