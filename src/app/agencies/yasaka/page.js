@@ -6,42 +6,19 @@ import styles from "@/styles/theme.module.css";
 
 export default function YasakaPage() {
   return (
-    <main>
-      {/* Hero + Logo */}
-      <section
-        style={{
-          backgroundImage: "url('/images/yasaka-hero.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "60vh",
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "rgba(0,0,0,0.5)",
-            padding: "2rem",
-            borderRadius: "12px",
-          }}
-        >
-          <Image
-            src="/images/yasaka-logo.png"
-            alt="Yasaka"
-            width={200}
-            height={80}
-            style={{ objectFit: "contain" }}
-          />
-        </div>
-      </section>
+    <main className={styles.sectionLight}>
+      <div style={{ textAlign: "center" }}>
+        <Image
+          src="/images/yasaka-logo.png"
+          alt="Yasaka logo"
+          width={200}
+          height={80}
+          style={{ objectFit: "contain", margin: "2rem auto" }}
+        />
 
-      {/* Intro */}
-      <section className={styles.sectionLight}>
-        <h2 className={styles.sectionTitle}>
+        <h1 className={styles.heading}>
           Yasaka – Japanese-Swedish Table Tennis Heritage
-        </h2>
+        </h1>
         <p
           className={styles.paragraph}
           style={{ maxWidth: "800px", margin: "0 auto" }}
@@ -51,11 +28,10 @@ export default function YasakaPage() {
           the Rakza series, Yasaka has helped shape the history of modern table
           tennis.
         </p>
-      </section>
 
-      {/* Filosofi */}
-      <section className={styles.sectionLight}>
-        <h2 className={styles.sectionTitle}>Our Philosophy</h2>
+        <h2 className={styles.heading} style={{ marginTop: "4rem" }}>
+          Our Philosophy
+        </h2>
         <p
           className={styles.paragraph}
           style={{ maxWidth: "800px", margin: "0 auto" }}
@@ -65,26 +41,17 @@ export default function YasakaPage() {
           performance, durability, and feel in mind—trusted by world-class
           professionals and passionate amateurs alike.
         </p>
-      </section>
 
-      {/* CTA */}
-      <section className={styles.sectionDark}>
-        <h2 className={styles.sectionTitle}>Official Retailer</h2>
-        <p
-          className={styles.paragraph}
-          style={{ textAlign: "center", color: "#ddd" }}
-        >
-          Explore the full Yasaka range at our official retailer.
-        </p>
-        <div style={{ textAlign: "center", marginTop: "1rem" }}>
+        <div style={{ marginTop: "3rem" }}>
           <Link
-            href="https://yasakatabletennis.com"
+            href="https://yasakatabletennis.com/"
+            target="_blank"
             className={styles.btnPrimary}
           >
             Visit yasakatabletennis.com →
           </Link>
         </div>
-      </section>
+      </div>
     </main>
   );
 }

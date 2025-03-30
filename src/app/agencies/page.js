@@ -1,67 +1,98 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "@/styles/theme.module.css";
 
-const brands = [
+const agencies = [
   {
     name: "Yasaka",
     logo: "/images/yasaka-logo.png",
-    link: "/agencies/yasaka",
-    tagline: "Japanese-Swedish excellence",
+    href: "/agencies/yasaka",
+    description:
+      "Japanese-Swedish craftsmanship with legendary rubbers and blades.",
   },
   {
     name: "Donic",
     logo: "/images/donic-logo.png",
-    link: "/agencies/donic",
-    tagline: "German technology, world-class performance",
+    href: "/agencies/donic",
+    description: "High-end German technology used by world champions.",
   },
   {
     name: "Nittaku",
     logo: "/images/nittaku-logo.png",
-    link: "/agencies/nittaku",
-    tagline: "Japan’s premier table tennis brand",
+    href: "/agencies/nittaku",
+    description:
+      "Japan’s most premium table tennis brand and official ball supplier.",
   },
 ];
 
 export default function AgenciesPage() {
   return (
     <main className={styles.sectionLight}>
-      <h1 className={styles.heading}>Our Brands</h1>
+      <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
+        <h1 className={styles.heading}>Our Agencies</h1>
+        <p className={styles.paragraph}>
+          At Wood House AB, we are honored to represent some of the most
+          respected brands in the world of table tennis. Yasaka, Donic and
+          Nittaku have entrusted us as their exclusive agency partner in the
+          Nordic region — a responsibility we carry with pride and dedication.
+        </p>
+      </div>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-          gap: "2rem",
-          maxWidth: "1000px",
-          margin: "2rem auto 0",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+          gap: "2.5rem",
+          maxWidth: "1100px",
+          margin: "4rem auto 0",
         }}
       >
-        {brands.map((brand) => (
-          <Link
-            href={brand.link}
-            key={brand.name}
+        {agencies.map((agency) => (
+          <div
+            key={agency.name}
             className={styles.tile}
-            style={{ textDecoration: "none", color: "inherit" }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              padding: "2rem",
+              background: "#fff",
+              borderRadius: "12px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
+            }}
           >
             <Image
-              src={brand.logo}
-              alt={brand.name}
+              src={agency.logo}
+              alt={agency.name}
               width={160}
-              height={80}
+              height={70}
               style={{
                 objectFit: "contain",
                 marginBottom: "1rem",
                 filter: "grayscale(100%)",
               }}
             />
-            <h3 style={{ fontSize: "1.2rem", fontWeight: 600 }}>
-              {brand.name}
-            </h3>
-            <p style={{ fontSize: "0.9rem", color: "#666" }}>{brand.tagline}</p>
-          </Link>
+            <h2 style={{ marginBottom: "0.5rem" }}>{agency.name}</h2>
+            <p
+              style={{
+                fontSize: "0.95rem",
+                color: "#666",
+                marginBottom: "1.5rem",
+              }}
+            >
+              {agency.description}
+            </p>
+            <Link
+              href={agency.href}
+              className={styles.btnSecondary}
+              style={{ textDecoration: "none" }}
+            >
+              Learn more →
+            </Link>
+          </div>
         ))}
       </div>
     </main>
