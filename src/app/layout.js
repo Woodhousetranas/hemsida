@@ -2,6 +2,7 @@ import "./globals.css";
 import { Bebas_Neue, Inter } from "next/font/google";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Chatbot from "@/components/Chatbot";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400" });
 const inter = Inter({ subsets: ["latin"] });
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <Chatbot />
       </body>
     </html>
   );
