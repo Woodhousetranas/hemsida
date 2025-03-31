@@ -1,8 +1,11 @@
+"use client";
+
 import HeroSection from "@/components/home/HeroSection";
 import AboutSection from "@/components/home/AboutSection";
 import BrandsSection from "@/components/home/BrandsSection";
+import ProductsCarousel from "@/components/home/ProductsCarousel";
 import CTASection from "@/components/home/CTASection";
-import BladeCarousel from "@/components/home/BladeCarousel";
+import CTASectionBottom from "@/components/home/CTASectionBottom";
 
 export default function HomePage() {
   return (
@@ -10,8 +13,9 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <BrandsSection />
+      <ProductsCarousel />
       <CTASection />
-      <BladeCarousel />
+      <CTASectionBottom />
     </>
   );
 }

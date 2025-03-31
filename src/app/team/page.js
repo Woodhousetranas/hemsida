@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 import styles from "@/styles/theme.module.css";
 import TeamMemberModal from "@/components/TeamMemberModal";
 
@@ -59,60 +60,53 @@ export default function TeamPage() {
 
   return (
     <main className={styles.section}>
-      <h1 className={styles.heading}>Meet the Wood House Team</h1>
+      <h1 className={styles.sectionTitle}>Meet the Wood House Team</h1>
 
-      <div className={styles.grid}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gap: "2rem",
+          maxWidth: "1200px",
+          margin: "0 auto",
+        }}
+      >
         {team.map((member) => (
           <div
             key={member.name}
             className={styles.tile}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              padding: "1.5rem",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
             onClick={() => setSelectedMember(member)}
           >
             <Image
               src={member.image}
               alt={member.name}
-              width={140}
-              height={140}
+              width={160}
+              height={160}
               style={{
                 borderRadius: "50%",
                 objectFit: "cover",
                 marginBottom: "1rem",
               }}
             />
-            <h3 className={styles.productName}>{member.name}</h3>
-            <p
+            <h3
               style={{
-                fontSize: "0.9rem",
-                color: "var(--color-text)",
-                marginBottom: "0.5rem",
+                fontSize: "1.2rem",
+                fontWeight: 700,
+                marginBottom: "0.2rem",
               }}
             >
+              {member.name}
+            </h3>
+            <p style={{ fontSize: "0.95rem", color: "var(--color-text)" }}>
               {member.title}
             </p>
-
-            <div
-              style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
-            >
-              <a
-                href={`mailto:${member.email}`}
-                onClick={(e) => e.stopPropagation()}
-                title="Email"
-              >
-                📧
-              </a>
-              {member.linkedin && (
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  title="LinkedIn"
-                >
-                  🔗
-                </a>
-              )}
-            </div>
           </div>
         ))}
       </div>

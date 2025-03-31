@@ -1,53 +1,104 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/theme.module.css";
 
 export default function NittakuPage() {
   return (
-    <main className={styles.sectionLight}>
-      <div style={{ textAlign: "center" }}>
-        <Image
-          src="/images/nittaku-logo.png"
-          alt="Nittaku logo"
-          width={200}
-          height={80}
-          style={{ objectFit: "contain", margin: "2rem auto" }}
-        />
-
-        <h1 className={styles.heading}>Nittaku – Japan’s Premium Brand</h1>
-        <p
-          className={styles.paragraph}
-          style={{ maxWidth: "800px", margin: "0 auto" }}
+    <>
+      {/* HERO SECTION */}
+      <section className={styles.sectionLight}>
+        <div
+          style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}
         >
-          Nittaku has long been recognized for its quality and innovation in the
-          world of table tennis. As the official ball supplier for the Olympics,
-          their commitment to excellence is unmatched.
-        </p>
-
-        <h2 className={styles.heading} style={{ marginTop: "4rem" }}>
-          Our Philosophy
-        </h2>
-        <p
-          className={styles.paragraph}
-          style={{ maxWidth: "800px", margin: "0 auto" }}
-        >
-          Nittaku combines precision Japanese engineering with decades of
-          experience to produce some of the most respected equipment in the
-          sport.
-        </p>
-
-        <div style={{ marginTop: "3rem" }}>
-          <Link
-            href="https://www.nittaku.com/"
-            target="_blank"
-            className={styles.btnPrimary}
+          <h1 className={styles.heading}>Nittaku</h1>
+          <p
+            className={styles.paragraph}
+            style={{ marginTop: "0.5rem", fontSize: "1.1rem" }}
           >
-            Visit nittaku.com →
+            <strong>Japanese precision. Olympic performance.</strong>
+          </p>
+        </div>
+      </section>
+
+      {/* BRAND STORY */}
+      <section className={styles.sectionLight}>
+        <div
+          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
+        >
+          <p className={styles.paragraph}>
+            Nittaku is a premium Japanese brand known for exceptional
+            craftsmanship and global recognition. Their competition-grade balls
+            are frequently used at World Championships and Olympic Games. Their
+            rubbers and blades are trusted by elite players around the world.
+          </p>
+        </div>
+      </section>
+
+      {/* PHILOSOPHY & DISTRIBUTION */}
+      <section className={styles.sectionDark}>
+        <div
+          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
+        >
+          <p
+            className={styles.paragraph}
+            style={{ color: "var(--color-white)" }}
+          >
+            As the official Nittaku agent in Scandinavia, we ensure local
+            support and fast logistics. Products like the Violin and Acoustic
+            blade series reach passionate players who value precision, quality,
+            and performance.
+          </p>
+        </div>
+      </section>
+
+      {/* PRODUCT STRENGTHS */}
+      <section className={styles.sectionLight}>
+        <div
+          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
+        >
+          <h2 className={styles.heading}>Why Players Choose Nittaku</h2>
+          <ul
+            style={{
+              listStyle: "none",
+              padding: 0,
+              marginTop: "1.5rem",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
+            <li className={styles.tile}>
+              <strong>Competition Balls</strong>
+              <p style={{ fontSize: "0.95rem", color: "#555" }}>
+                Used in Olympics and World Championships for unmatched
+                consistency.
+              </p>
+            </li>
+            <li className={styles.tile}>
+              <strong>Violin & Acoustic Blades</strong>
+              <p style={{ fontSize: "0.95rem", color: "#555" }}>
+                Crafted with musical wood technology for feel and precision.
+              </p>
+            </li>
+            <li className={styles.tile}>
+              <strong>Japanese Excellence</strong>
+              <p style={{ fontSize: "0.95rem", color: "#555" }}>
+                Meticulously engineered for professional-level play.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className={styles.sectionLight}>
+        <div style={{ textAlign: "center", paddingTop: "1rem" }}>
+          <Link href="https://www.nittaku.com/" className={styles.btnPrimary}>
+            Visit Nittaku.com →
           </Link>
         </div>
-      </div>
-    </main>
+      </section>
+    </>
   );
 }

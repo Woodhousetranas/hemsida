@@ -1,0 +1,76 @@
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  }
+  
+  .closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.8rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s ease;
+  }
+  
+  .closeButton:hover {
+    color: #000;
+  }
+  
+  .modalImage {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  .iconLinks {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .iconLinks a {
+    color: var(--color-accent);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  
+  .iconLinks a:hover {
+    color: #003580;
+    transform: scale(1.2);
+  }
+  

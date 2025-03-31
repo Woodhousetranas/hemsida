@@ -1,96 +1,111 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import styles from './Contact.module.css';
+import styles from "@/styles/theme.module.css";
+import Link from "next/link";
 
-export default function Contact() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [status, setStatus] = useState('');
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      const result = await res.json();
-      setStatus(result.message);
-      setForm({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Submission error:', error);
-      setStatus('Submission failed, please try again.');
-    }
-  };
-
+export default function ContactPage() {
   return (
-    <main className={styles.container}>
-      <h1 className={styles.title}>Contact Us</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.inputGroup}>
-          <label htmlFor="name" className={styles.label}>Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            required
-            className={styles.input}
-          />
+    <>
+      {/* HERO SECTION */}
+      <section className={styles.sectionLight}>
+        <div
+          style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}
+        >
+          <h1 className={styles.heading}>Contact Us</h1>
+          <p
+            className={styles.paragraph}
+            style={{ marginTop: "0.5rem", fontSize: "1.1rem" }}
+          >
+            We warmly invite you to reach out to Wood House i Tranås AB to
+            discuss partnerships, dealership opportunities, or any questions
+            regarding our products and services.
+          </p>
         </div>
-        <div className={styles.inputGroup}>
-          <label htmlFor="email" className={styles.label}>Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            required
-            className={styles.input}
-          />
+      </section>
+
+      {/* FORM SECTION */}
+      <section className={styles.sectionDark}>
+        <div
+          style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}
+        >
+          <p
+            className={styles.paragraph}
+            style={{ color: "#fff", marginBottom: "2rem" }}
+          >
+            We value open dialogue and look forward to supporting you with our
+            extensive expertise and dedicated customer service.
+          </p>
+
+          <form
+            style={{ display: "grid", gap: "1rem", textAlign: "left" }}
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.target);
+              const name = formData.get("name").trim();
+              const email = formData.get("email").trim();
+              const message = formData.get("message").trim();
+
+              if (!name || !email || !message) {
+                alert("All fields are required.");
+                return;
+              }
+
+              if (!/\S+@\S+\.\S+/.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+              }
+
+              alert("Form submitted successfully!");
+              // Add further processing logic here, e.g., sending data to a server
+            }}
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              style={{
+                padding: "0.75rem",
+                borderRadius: "6px",
+                border: "1px solid #ccc",
+                fontSize: "1rem",
+              }}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              style={{
+                padding: "0.75rem",
+                borderRadius: "6px",
+                border: "1px solid #ccc",
+                fontSize: "1rem",
+              }}
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows={5}
+              required
+              style={{
+                padding: "0.75rem",
+                borderRadius: "6px",
+                border: "1px solid #ccc",
+                fontSize: "1rem",
+                resize: "vertical",
+              }}
+            />
+            <button
+              type="submit"
+              className={styles.btnPrimary}
+              style={{ marginTop: "0.5rem" }}
+            >
+              Send Message
+            </button>
+          </form>
         </div>
-        <div className={styles.inputGroup}>
-          <label htmlFor="subject" className={styles.label}>Subject</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={form.subject}
-            onChange={handleChange}
-            required
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.inputGroup}>
-          <label htmlFor="message" className={styles.label}>Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="5"
-            value={form.message}
-            onChange={handleChange}
-            required
-            className={styles.textarea}
-          />
-        </div>
-        <button type="submit" className={styles.submitButton}>
-          Send Message
-        </button>
-      </form>
-      {status && <p className={styles.status}>{status}</p>}
-    </main>
+      </section>
+    </>
   );
 }

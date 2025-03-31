@@ -59,9 +59,6 @@ export default function AgenciesPage() {
               alignItems: "center",
               textAlign: "center",
               padding: "2rem",
-              background: "#fff",
-              borderRadius: "12px",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.06)",
             }}
           >
             <Image
@@ -85,11 +82,7 @@ export default function AgenciesPage() {
             >
               {agency.description}
             </p>
-            <Link
-              href={agency.href}
-              className={styles.btnSecondary}
-              style={{ textDecoration: "none" }}
-            >
+            <Link href={agency.href} className={styles.btnSecondary}>
               Learn more →
             </Link>
           </div>

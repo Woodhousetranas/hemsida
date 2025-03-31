@@ -1,55 +1,104 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/theme.module.css";
 
 export default function DonicPage() {
   return (
-    <main className={styles.sectionLight}>
-      <div style={{ textAlign: "center" }}>
-        <Image
-          src="/images/donic-logo.png"
-          alt="Donic logo"
-          width={200}
-          height={80}
-          style={{ objectFit: "contain", margin: "2rem auto" }}
-        />
-
-        <h1 className={styles.heading}>
-          Donic – German Engineering in Table Tennis
-        </h1>
-        <p
-          className={styles.paragraph}
-          style={{ maxWidth: "800px", margin: "0 auto" }}
+    <>
+      {/* HERO SECTION */}
+      <section className={styles.sectionLight}>
+        <div
+          style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}
         >
-          Donic stands for world-class German technology in table tennis. With a
-          long history of supporting champions and developing innovative
-          equipment, Donic continues to push the sport forward.
-        </p>
-
-        <h2 className={styles.heading} style={{ marginTop: "4rem" }}>
-          Our Philosophy
-        </h2>
-        <p
-          className={styles.paragraph}
-          style={{ maxWidth: "800px", margin: "0 auto" }}
-        >
-          At Donic, innovation meets tradition. Every product is engineered with
-          precision and crafted for peak performance, trusted by professionals
-          around the world.
-        </p>
-
-        <div style={{ marginTop: "3rem" }}>
-          <Link
-            href="https://www.donic.com/"
-            target="_blank"
-            className={styles.btnPrimary}
+          <h1 className={styles.heading}>Donic</h1>
+          <p
+            className={styles.paragraph}
+            style={{ marginTop: "0.5rem", fontSize: "1.1rem" }}
           >
-            Visit donic.com →
+            <strong>German engineering meets world-class champions.</strong>
+          </p>
+        </div>
+      </section>
+
+      {/* BRAND STORY */}
+      <section className={styles.sectionLight}>
+        <div
+          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
+        >
+          <p className={styles.paragraph}>
+            Donic is a world-renowned German table tennis brand celebrated for
+            innovation and a complete product range catering to players of all
+            levels. Established in the 1970s, Donic's elite reputation is
+            reinforced by close collaborations with legendary Swedish champions
+            like Jan-Ove Waldner and Jörgen Persson.
+          </p>
+        </div>
+      </section>
+
+      {/* PHILOSOPHY & DISTRIBUTION */}
+      <section className={styles.sectionDark}>
+        <div
+          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
+        >
+          <p
+            className={styles.paragraph}
+            style={{ color: "var(--color-white)" }}
+          >
+            As the official agent of Donic in Scandinavia, we provide seamless
+            logistics, storage, and marketing. Scandinavian retailers and clubs
+            rely on us to access Donic’s acclaimed Original Senso blade series
+            and Formula DONIC rubbers with built-in speed glue effect.
+          </p>
+        </div>
+      </section>
+
+      {/* PRODUCT STRENGTHS */}
+      <section className={styles.sectionLight}>
+        <div
+          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
+        >
+          <h2 className={styles.heading}>Why Players Choose Donic</h2>
+          <ul
+            style={{
+              listStyle: "none",
+              padding: 0,
+              marginTop: "1.5rem",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: "1.5rem",
+            }}
+          >
+            <li className={styles.tile}>
+              <strong>Original Senso Series</strong>
+              <p style={{ fontSize: "0.95rem", color: "#555" }}>
+                A top choice for competitive players seeking control and power.
+              </p>
+            </li>
+            <li className={styles.tile}>
+              <strong>Formula Donic</strong>
+              <p style={{ fontSize: "0.95rem", color: "#555" }}>
+                Advanced rubbers with built-in speed glue effect.
+              </p>
+            </li>
+            <li className={styles.tile}>
+              <strong>Champions' Legacy</strong>
+              <p style={{ fontSize: "0.95rem", color: "#555" }}>
+                Trusted by Waldner, Persson, and generations of elite players.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className={styles.sectionLight}>
+        <div style={{ textAlign: "center", paddingTop: "1rem" }}>
+          <Link href="https://www.donic.com/" className={styles.btnPrimary}>
+            Visit Donic.com →
           </Link>
         </div>
-      </div>
-    </main>
+      </section>
+    </>
   );
 }
