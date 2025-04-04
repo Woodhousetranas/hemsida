@@ -3,12 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/effect-fade";
 import styles from "@/styles/theme.module.css";
 
-const blades = [
+const products = [
   {
     name: "Ma Lin Extra Offensive",
     image: "/images/ma-lin-extra-offensive.jpg",
@@ -45,13 +44,13 @@ const blades = [
     link: "/agencies/donic",
   },
   {
-    name: "Persson Power Carbon",
-    image: "/images/persson-power-carbon.jpg",
+    name: "Original Senso V1",
+    image: "/images/original-senso-v1.jpg",
     link: "/agencies/donic",
   },
   {
-    name: "Original Senso V1",
-    image: "/images/original-senso-v1.jpg",
+    name: "Persson Power Carbon",
+    image: "/images/persson-power-carbon.jpg",
     link: "/agencies/donic",
   },
   {
@@ -64,28 +63,41 @@ const blades = [
 export default function ProductsCarousel() {
   return (
     <section className={styles.sectionLight}>
-      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h2 className={styles.heading}>Crafted Blades</h2>
+      <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+        <h2 className={styles.heading}>Our Blades</h2>
       </div>
       <Swiper
-        modules={[Autoplay, EffectFade]}
-        effect="fade"
-        autoplay={{ delay: 3500, disableOnInteraction: false }}
-        loop
-        speed={800}
-        className="swiper"
+        modules={[Autoplay]}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        loop={true}
+        spaceBetween={60}
+        slidesPerView={3}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+        }}
+        className="mySwiper"
       >
-        {blades.map((blade) => (
-          <SwiperSlide key={blade.name}>
-            <Link href={blade.link} className={styles.tile}>
+        {products.map((product) => (
+          <SwiperSlide key={product.name}>
+            <Link href={product.link} className={styles.tile}>
               <Image
-                src={blade.image}
-                alt={blade.name}
-                width={300}
-                height={300}
+                src={product.image}
+                alt={product.name}
+                width={320}
+                height={320}
                 className={styles.tileImage}
               />
-              <h3 style={{ marginTop: "1rem" }}>{blade.name}</h3>
+              <h3
+                style={{
+                  fontSize: "0,5rem",
+                  marginTop: "1rem",
+                  fontWeight: 800,
+                }}
+              >
+                {product.name}
+              </h3>
             </Link>
           </SwiperSlide>
         ))}

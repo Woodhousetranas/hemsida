@@ -24,8 +24,8 @@ export default function Header() {
         <Image
           src="/images/woodhouse-logo.png"
           alt="Wood House Logo"
-          width={140}
-          height={50}
+          width={280}
+          height={100}
           style={{ objectFit: "contain" }}
         />
       </Link>

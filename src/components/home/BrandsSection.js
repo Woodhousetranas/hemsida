@@ -27,9 +27,11 @@ const brands = [
 
 export default function BrandsSection() {
   return (
-    <section className={styles.sectionLight}>
+    <section className={styles.sectionDark}>
       <div style={{ textAlign: "center" }}>
-        <h2 className={styles.heading}>Our Brands</h2>
+        <h2 className={styles.heading} style={{ color: "var(--color-white)" }}>
+          Our Brands
+        </h2>
       </div>
 
       <div
@@ -51,18 +53,18 @@ export default function BrandsSection() {
             <Image
               src={brand.logo}
               alt={brand.name}
-              width={160}
+              width={200}
               height={80}
               style={{
                 objectFit: "contain",
                 marginBottom: "1rem",
-                filter: "grayscale(100%)",
+                filter: "grayscale(100%) brightness(1.1)",
               }}
             />
-            <h3 style={{ fontSize: "1.2rem", fontWeight: 600 }}>
+            <h3 style={{ fontSize: "1rem", fontWeight: 800, color: "#fff" }}>
               {brand.name}
             </h3>
-            <p style={{ fontSize: "0.9rem", color: "#666" }}>{brand.tagline}</p>
+            <p style={{ fontSize: "0.9rem", color: "#ccc" }}>{brand.tagline}</p>
           </Link>
         ))}
       </div>

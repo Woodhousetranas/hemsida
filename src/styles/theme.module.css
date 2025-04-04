@@ -1,3 +1,4 @@
+/* === SECTIONS === */
 .section {
   padding: 4rem 1rem;
 }
@@ -37,9 +38,15 @@
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--color-text);
+  margin-bottom: 1.5rem;
 }
 
-/* PRIMARY BUTTON */
+.paragraphLight {
+  color: #ddd;
+  margin-bottom: 2rem;
+}
+
+/* === BUTTONS === */
 .btnPrimary {
   display: inline-block;
   background: var(--color-accent);
@@ -57,7 +64,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* SECONDARY BUTTON */
 .btnSecondary {
   background: none;
   color: var(--color-accent);
@@ -76,20 +82,35 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* TILE / CARD */
+.buttonAnimate {
+  display: inline-block;
+  background: var(--color-white);
+  color: var(--color-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.buttonAnimate:hover {
+  transform: translateY(-2px);
+  background: #f0f0f0;
+}
+
+/* === TILE / CARD === */
 .tile {
-  display: block;
   background: var(--color-white);
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   padding: 1.5rem;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .tile:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
 }
 
 .tileImage {
@@ -97,14 +118,14 @@
   margin-bottom: 1rem;
 }
 
-/* HEADER NAVIGATION */
+/* === NAVIGATION === */
 .navLinks {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.6px;
 }
@@ -139,33 +160,7 @@
   transform-origin: left;
 }
 
-.buttonAnimate {
-  display: inline-block;
-  background: var(--color-white);
-  color: var(--color-dark);
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.buttonAnimate:hover {
-  transform: translateY(-2px);
-  background: #f0f0f0;
-}
-
-.centeredContent {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.paragraphLight {
-  color: #ddd;
-  margin-bottom: 2rem;
-}
-
+/* === HERO === */
 .heroTitle {
   font-size: 3rem;
   font-weight: 700;
@@ -189,29 +184,13 @@
   transform: translateY(-2px);
 }
 
+/* === GRID / LAYOUT === */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
-}
-
-.productName {
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 0.8rem;
-  color: #111;
-  text-align: center;
-}
-
-.productDescription {
-  font-size: 0.9rem;
-  color: #666;
-  text-align: center;
-  margin-top: 0.5rem;
 }
 
 .imageGrid {
@@ -232,75 +211,30 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 1rem;
-}
-
-.modal {
-  background: #fff;
-  border-radius: 10px;
-  padding: 2rem;
-  max-width: 500px;
-  width: 100%;
-  position: relative;
+.productName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.8rem;
+  color: #111;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.closeButton {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  color: #333;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-@media (max-width: 480px) {
-  .modal {
-    padding: 1.5rem 1rem;
-  }
-
-  .closeButton {
-    top: 0.75rem;
-    right: 0.75rem;
-    font-size: 1.3rem;
-  }
-}
-
-.sectionTitle {
+.productDescription {
+  font-size: 0.9rem;
+  color: #666;
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 1px;
-  color: var(--color-text);
+  margin-top: 0.5rem;
 }
 
+.centeredContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* === SECTION TITLES === */
 .sectionTitle {
   text-align: center;
   font-size: 2.5rem;
@@ -320,8 +254,8 @@
   margin: 0.5rem auto 0;
 }
 
-/* Vit text för mörka sektioner */
-.sectionDark .heading {
+.sectionDark .heading,
+.sectionDark .sectionTitle {
   color: #fff;
 }
 
@@ -329,6 +263,7 @@
   color: #ddd;
 }
 
+/* === FOOTER === */
 .footer {
   background: var(--color-dark);
   color: var(--color-white);
@@ -357,7 +292,29 @@
   font-size: 1.1rem;
 }
 
-/* Carousel navigation overrides */
+/* === CTA === */
+.ctaContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* === SWIPER CAROUSEL === */
+.swiper {
+  padding: 1,4rem;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.mySwiper .tile {
+  width: 100%;
+  max-width: 200px;
+}
+
 .carouselWrapper :global(.swiper-button-next),
 .carouselWrapper :global(.swiper-button-prev) {
   color: var(--color-accent);
@@ -366,7 +323,7 @@
 
 .carouselWrapper :global(.swiper-button-next:hover),
 .carouselWrapper :global(.swiper-button-prev:hover) {
-  transform: scale(1.1);
+  transform: scale(1.0);
 }
 
 .carouselWrapper :global(.swiper-pagination-bullet) {
@@ -376,62 +333,4 @@
 
 .carouselWrapper :global(.swiper-pagination-bullet-active) {
   background: var(--color-accent);
-}
-
-/* === Modal Styles for TeamMemberModal === */
-.modalOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal {
-  background: var(--color-white);
-  padding: 2.5rem 2rem;
-  border-radius: 12px;
-  max-width: 600px;
-  width: 90%;
-  position: relative;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  animation: fadeInModal 0.3s ease;
-}
-
-@keyframes fadeInModal {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.closeButton {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: var(--color-accent);
-  color: #fff;
-  border: none;
-  font-size: 1.1rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.closeButton:hover {
-  background: #003580;
-}
-
-.ctaContainer {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
 }
