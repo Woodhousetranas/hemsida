@@ -2,7 +2,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import BrandsSection from "@/components/home/BrandsSection";
 import CTASectionBottom from "@/components/home/CTASectionBottom";
-import BladeCarousel from "@/components/home/BladeCarousel";
 import ProductsCarousel from "@/components/home/ProductsCarousel";
 
 export default function HomePage() {
@@ -11,9 +10,7 @@ export default function HomePage() {
       <HeroSection />
       <BrandsSection />
       <CTASectionBottom />
-      <BladeCarousel />
       <ProductsCarousel />
     </>
   );
 }
-
