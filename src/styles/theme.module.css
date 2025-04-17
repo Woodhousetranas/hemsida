@@ -334,3 +334,202 @@
 .carouselWrapper :global(.swiper-pagination-bullet-active) {
   background: var(--color-accent);
 }
+
+/* Home/Hero */
+.heroSection {
+  position: relative;
+  height: 90vh;
+  background-image: url("/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 1rem;
+}
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+.heroButton {
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.heroButton:hover {
+  transform: translateY(-2px);
+  background: #003580;
+}
+
+/* Carousel Wrapper */
+.carouselWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+/* Product Titles */
+.productName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 0.8rem;
+  text-align: center;
+  color: var(--color-text);
+}
+
+/* Reuse tile and tileImage from existing CSS */
+
+/* CTA Container */
+.ctaContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Section light/dark, centeredContent, heading & paragraph redan på plats */
+
+/* Timeline (om inte redan inlagt) */
+.timeline {
+  position: relative;
+  margin: 3rem auto;
+  padding-left: 2rem;
+  max-width: 800px;
+  border-left: 2px solid var(--color-accent);
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+.timelineItem:nth-child(even) .timelineContent {
+  background: #111;
+  color: #fff;
+}
+
+.timelineItem h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.timelineItem p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -1.05rem;
+  top: 0.3rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+}
+
+.timelineContent {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  transition: background 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CTASectionBottom (återanvänd från home) */
+.ctaContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* === Production Carousel Overrides === */
+.sectionDark .heading {
+  color: #fff;
+}
+
+.productionImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.carouselWrapper :global(.swiper) {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.carouselWrapper :global(.swiper-pagination-bullet) {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.carouselWrapper :global(.swiper-pagination-bullet-active) {
+  background: var(--color-accent);
+}
+
+/* Carousel wrapper centering & spacing */
+.carouselWrapper {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Swiper‐knappar */
+.carouselWrapper :global(.swiper-button-next),
+.carouselWrapper :global(.swiper-button-prev) {
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+}
+.carouselWrapper :global(.swiper-button-next:hover),
+.carouselWrapper :global(.swiper-button-prev:hover) {
+  transform: scale(1.1);
+}
+
+/* Pagination bullets */
+.carouselWrapper :global(.swiper-pagination-bullet) {
+  background: #ccc;
+  opacity: 1;
+  margin: 0 4px !important;
+}
+.carouselWrapper :global(.swiper-pagination-bullet-active) {
+  background: var(--color-accent);
+}
+
+/* Tile spacing override */
+.carouselWrapper :global(.swiper-slide) {
+  display: flex;
+  justify-content: center;
+}
+.carouselWrapper :global(.swiper-slide) .tile {
+  max-width: 240px;
+}

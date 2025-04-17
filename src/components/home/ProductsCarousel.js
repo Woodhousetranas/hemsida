@@ -1,107 +1,96 @@
 "use client";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination, EffectFade } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
 import styles from "@/styles/theme.module.css";
 
 const products = [
   {
-    name: "Ma Lin Extra Offensive",
-    image: "/images/ma-lin-extra-offensive.jpg",
-    link: "/agencies/yasaka",
-  },
-  {
-    name: "Falck W7",
-    image: "/images/falck-w7.jpg",
-    link: "/agencies/yasaka",
-  },
-  {
     name: "Falck Carbon",
     image: "/images/falck-carbon.jpg",
-    link: "/agencies/yasaka",
+    href: "/posts/falck-carbon",
   },
   {
-    name: "Sweden Extra",
-    image: "/images/sweden-extra.jpg",
-    link: "/agencies/yasaka",
-  },
-  {
-    name: "Ma Lin Soft Carbon",
-    image: "/images/ma-lin-soft-carbon.jpg",
-    link: "/agencies/yasaka",
+    name: "Ma Lin Extra Special",
+    image: "/images/ma-lin-extra-special.jpg",
+    href: "/posts/ma-lin-extra-special",
   },
   {
     name: "Extra Offensive 7 Power",
     image: "/images/extra-offensive-7-power.jpg",
-    link: "/agencies/yasaka",
+    href: "/posts/extra-offensive-7-power",
   },
   {
-    name: "Waldner Dicon",
-    image: "/images/waldner-dicon.jpg",
-    link: "/agencies/donic",
+    name: "Max Carbon 3D",
+    image: "/images/max-carbon-3d.jpg",
+    href: "/posts/max-carbon-3d",
   },
   {
-    name: "Original Senso V1",
-    image: "/images/original-senso-v1.jpg",
-    link: "/agencies/donic",
+    name: "Sweden EK Carbon",
+    image: "/images/sweden-ek-carbon.jpg",
+    href: "/posts/sweden-ek-carbon",
+  },
+  { name: "Falck W7", image: "/images/falck-w7.jpg", href: "/posts/falck-w7" },
+  {
+    name: "Ma Lin Carbon",
+    image: "/images/ma-lin-carbon.jpg",
+    href: "/posts/ma-lin-carbon",
   },
   {
-    name: "Persson Power Carbon",
-    image: "/images/persson-power-carbon.jpg",
-    link: "/agencies/donic",
+    name: "Goiabao 5",
+    image: "/images/goiabao-5.jpg",
+    href: "/posts/goiabao-5",
   },
-  {
-    name: "Appelgren Allplay",
-    image: "/images/appelgren-allplay.jpg",
-    link: "/agencies/donic",
-  },
+  // lägg till övriga stommar på samma format...
 ];
 
 export default function ProductsCarousel() {
   return (
     <section className={styles.sectionLight}>
-      <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+      <div className={styles.centeredContent}>
         <h2 className={styles.heading}>Our Blades</h2>
       </div>
-      <Swiper
-        modules={[Autoplay]}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        loop={true}
-        spaceBetween={60}
-        slidesPerView={3}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          768: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
-        }}
-        className="mySwiper"
-      >
-        {products.map((product) => (
-          <SwiperSlide key={product.name}>
-            <Link href={product.link} className={styles.tile}>
-              <Image
-                src={product.image}
-                alt={product.name}
-                width={320}
-                height={320}
-                className={styles.tileImage}
-              />
-              <h3
-                style={{
-                  fontSize: "0,5rem",
-                  marginTop: "1rem",
-                  fontWeight: 800,
-                }}
-              >
-                {product.name}
-              </h3>
-            </Link>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+
+      <div className={`carouselWrapper ${styles.centeredContent}`}>
+        <Swiper
+          modules={[Autoplay, Navigation, Pagination, EffectFade]}
+          spaceBetween={24}
+          slidesPerView={3}
+          loop
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          navigation
+          pagination={{ clickable: true }}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          breakpoints={{
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {products.map((p) => (
+            <SwiperSlide key={p.name}>
+              <Link href={p.href} className={styles.tile}>
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  width={180}
+                  height={180}
+                  className={styles.tileImage}
+                />
+                <div className={styles.productName}>{p.name}</div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 }

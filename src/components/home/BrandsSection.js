@@ -1,3 +1,4 @@
+// src/components/home/BrandsSection.js
 "use client";
 
 import Image from "next/image";
@@ -8,19 +9,19 @@ const brands = [
   {
     name: "Yasaka",
     logo: "/images/yasaka-logo.png",
-    link: "/agencies/yasaka",
+    href: "/agencies/yasaka",
     tagline: "Japanese-Swedish excellence",
   },
   {
     name: "Donic",
     logo: "/images/donic-logo.png",
-    link: "/agencies/donic",
+    href: "/agencies/donic",
     tagline: "German technology, world-class performance",
   },
   {
     name: "Nittaku",
     logo: "/images/nittaku-logo.png",
-    link: "/agencies/nittaku",
+    href: "/agencies/nittaku",
     tagline: "Japan’s premier table tennis brand",
   },
 ];
@@ -28,24 +29,15 @@ const brands = [
 export default function BrandsSection() {
   return (
     <section className={styles.sectionDark}>
-      <div style={{ textAlign: "center" }}>
-        <h2 className={styles.heading} style={{ color: "var(--color-white)" }}>
+      <div className={styles.centeredContent}>
+        <h2 className={styles.heading} style={{ color: "#fff" }}>
           Our Brands
         </h2>
       </div>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-          gap: "2rem",
-          maxWidth: "1000px",
-          margin: "2rem auto 0",
-        }}
-      >
+      <div className={styles.imageGrid}>
         {brands.map((brand) => (
           <Link
-            href={brand.link}
+            href={brand.href}
             key={brand.name}
             className={styles.tile}
             style={{ textDecoration: "none", color: "inherit" }}
@@ -53,18 +45,18 @@ export default function BrandsSection() {
             <Image
               src={brand.logo}
               alt={brand.name}
-              width={200}
+              width={160}
               height={80}
               style={{
                 objectFit: "contain",
                 marginBottom: "1rem",
-                filter: "grayscale(100%) brightness(1.1)",
+                filter: "grayscale(100%) brightness(0) invert(1)",
               }}
             />
-            <h3 style={{ fontSize: "1rem", fontWeight: 800, color: "#fff" }}>
+            <h3 style={{ color: "#fff", marginBottom: "0.5rem" }}>
               {brand.name}
             </h3>
-            <p style={{ fontSize: "0.9rem", color: "#ccc" }}>{brand.tagline}</p>
+            <p style={{ color: "#ccc", fontSize: "0.9rem" }}>{brand.tagline}</p>
           </Link>
         ))}
       </div>
