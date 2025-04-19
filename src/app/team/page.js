@@ -1,8 +1,8 @@
+// src/app/team/page.js
 "use client";
 
 import { useState } from "react";
 import Image from "next/image";
-import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 import styles from "@/styles/theme.module.css";
 import TeamMemberModal from "@/components/TeamMemberModal";
 
@@ -48,10 +48,10 @@ const team = [
   },
   {
     name: "Olle",
-    title: "Player Manager & Marketing",
+    title: "Logistics & Marketing",
     email: "olle@woodhouse.se",
     image: "/images/olle.jpg",
-    description: "Leading #TeamYasaka & pushing our brands to new heights.",
+    description: "Oversees warehousing, logistics and player management.",
   },
 ];
 
@@ -59,62 +59,40 @@ export default function TeamPage() {
   const [selectedMember, setSelectedMember] = useState(null);
 
   return (
-    <main className={styles.section}>
-      <h1 className={styles.sectionTitle}>Meet the Wood House Team</h1>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-          gap: "2rem",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
-      >
-        {team.map((member) => (
-          <div
-            key={member.name}
-            className={styles.tile}
-            style={{
-              cursor: "pointer",
-              padding: "1.5rem",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-            onClick={() => setSelectedMember(member)}
-          >
-            <Image
-              src={member.image}
-              alt={member.name}
-              width={160}
-              height={160}
-              style={{
-                borderRadius: "50%",
-                objectFit: "cover",
-                marginBottom: "1rem",
-              }}
-            />
-            <h3
-              style={{
-                fontSize: "1.2rem",
-                fontWeight: 700,
-                marginBottom: "0.2rem",
-              }}
+    <>
+      <section className={`${styles.section} ${styles.sectionLight}`}>
+        <div className={styles.centered}>
+          <h1 className={styles.heading}>Meet the Wood House Team</h1>
+        </div>
+        <div className={styles["grid-3"]}>
+          {team.map((member) => (
+            <div
+              key={member.name}
+              className={styles.tile}
+              onClick={() => setSelectedMember(member)}
+              style={{ cursor: "pointer" }}
             >
-              {member.name}
-            </h3>
-            <p style={{ fontSize: "0.95rem", color: "var(--color-text)" }}>
-              {member.title}
-            </p>
-          </div>
-        ))}
-      </div>
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={150}
+                height={150}
+                style={{ borderRadius: "50%", objectFit: "cover" }}
+              />
+              <h3 style={{ marginTop: "var(--space-sm)", fontWeight: 600 }}>
+                {member.name}
+              </h3>
+              <p style={{ color: "#555" }}>{member.title}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
+      {/* Modal */}
       <TeamMemberModal
         member={selectedMember}
         onClose={() => setSelectedMember(null)}
       />
-    </main>
+    </>
   );
 }

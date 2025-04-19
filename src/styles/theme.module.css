@@ -1,334 +1,158 @@
-/* === SECTIONS === */
+/* ====== SEKCIONES ====== */
 .section {
-  padding: 4rem 1rem;
+  padding: var(--space-lg) var(--space-sm);
 }
 
 .sectionLight {
-  background: var(--color-white);
-  padding: 4rem 1rem;
+  background-color: var(--color-white);
 }
 
 .sectionDark {
-  background: var(--color-dark);
+  background-color: var(--color-dark);
   color: var(--color-white);
-  padding: 4rem 1rem;
 }
 
-.heading {
+/* ====== RUBRIKER ====== */
+.heading,
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: var(--fz-h2);
   text-align: center;
-  font-size: 2.7rem;
-  margin-bottom: 2.5rem;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 1px;
   position: relative;
-  display: inline-block;
+  margin-bottom: var(--space-md);
 }
 
-.heading::after {
+.heading::after,
+.sectionTitle::after {
   content: '';
   display: block;
   width: 60px;
   height: 3px;
   background-color: var(--color-accent);
-  margin: 1rem auto 0;
+  margin: var(--space-xs) auto 0;
   border-radius: 2px;
 }
 
+/* ====== PARAGRAFER ====== */
 .paragraph {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--color-text);
-  margin-bottom: 1.5rem;
+  font-size: var(--fz-base);
+  line-height: var(--lh-base);
+  margin-bottom: var(--space-md);
 }
 
-.paragraphLight {
-  color: #ddd;
-  margin-bottom: 2rem;
+/* ====== UTILITIES ====== */
+.centered {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-/* === BUTTONS === */
+/* ====== KNAPPAR ====== */
 .btnPrimary {
   display: inline-block;
-  background: var(--color-accent);
-  color: #fff;
-  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-md);
   border-radius: 6px;
-  text-decoration: none;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: transform .2s, box-shadow .2s, background .2s;
 }
 
 .btnPrimary:hover {
-  background: #003580;
+  background-color: #003580;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .btnSecondary {
+  display: inline-block;
   background: none;
-  color: var(--color-accent);
   border: 2px solid var(--color-accent);
-  padding: 0.5rem 1.2rem;
+  color: var(--color-accent);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: 6px;
   font-weight: 500;
-  transition: all 0.2s ease;
-  cursor: pointer;
+  transition: transform .2s, box-shadow .2s, background .2s, color .2s;
 }
 
 .btnSecondary:hover {
-  background: var(--color-accent);
-  color: #fff;
+  background-color: var(--color-accent);
+  color: var(--color-white);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.buttonAnimate {
-  display: inline-block;
-  background: var(--color-white);
-  color: var(--color-dark);
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.buttonAnimate:hover {
-  transform: translateY(-2px);
-  background: #f0f0f0;
-}
-
-/* === TILE / CARD === */
+/* ====== TILE / KORT ====== */
 .tile {
-  background: var(--color-white);
+  background-color: var(--color-white);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: var(--space-md);
   text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform .2s, box-shadow .2s;
 }
 
 .tile:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
-.tileImage {
-  object-fit: contain;
-  margin-bottom: 1rem;
+/* ====== GRID ====== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: var(--space-lg);
+  margin: 0 auto;
 }
 
-/* === NAVIGATION === */
-.navLinks {
+/* ====== HERO ====== */
+.hero {
+  position: relative;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
   align-items: center;
-  font-size: 1.15rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-}
-
-.navLinks a {
-  color: var(--color-text);
-  text-decoration: none;
-  padding: 0.25rem 0;
-  position: relative;
-  transition: color 0.2s ease;
-}
-
-.navLinks a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 2px;
-  background: var(--color-accent);
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.navLinks a:hover {
-  color: var(--color-accent);
-}
-
-.navLinks a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* === HERO === */
-.heroTitle {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: white;
-  line-height: 1.3;
-}
-
-.heroButton {
-  background: #fff;
-  color: #000;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.heroButton:hover {
-  background: #ddd;
-  transform: translateY(-2px);
-}
-
-/* === GRID / LAYOUT === */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.imageGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.productionImage {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.productName {
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 0.8rem;
-  color: #111;
+  justify-content: center;
   text-align: center;
+  color: var(--color-white);
 }
 
-.productDescription {
-  font-size: 0.9rem;
-  color: #666;
-  text-align: center;
-  margin-top: 0.5rem;
-}
-
-.centeredContent {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* === SECTION TITLES === */
-.sectionTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 1px;
-  color: var(--color-text);
-  position: relative;
-}
-
-.sectionTitle::after {
+.hero::before {
   content: "";
-  display: block;
-  width: 60px;
-  height: 2px;
-  background: var(--color-accent);
-  margin: 0.5rem auto 0;
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
 }
 
-.sectionDark .heading,
-.sectionDark .sectionTitle {
-  color: #fff;
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-md);
 }
 
-.sectionDark .paragraph {
-  color: #ddd;
-}
-
-/* === FOOTER === */
+/* ====== FOOTER ====== */
 .footer {
-  background: var(--color-dark);
+  background-color: var(--color-dark);
   color: var(--color-white);
   text-align: center;
-  padding: 2.5rem 1rem;
-  font-size: 0.95rem;
+  padding: var(--space-md) var(--space-sm);
+  font-size: 0.9rem;
 }
 
-.footer p {
-  margin: 0.3rem 0;
-  line-height: 1.6;
+/* ====== SWIPER OVERRIDES ====== */
+.carouselWrapper :global(.swiper) {
+  padding: var(--space-sm) 0;
 }
 
-.footer a {
-  color: var(--color-white);
-  text-decoration: underline;
-  transition: opacity 0.2s ease;
-}
-
-.footer a:hover {
-  opacity: 0.7;
-}
-
-.slogan {
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-/* === CTA === */
-.ctaContainer {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* === SWIPER CAROUSEL === */
-.swiper {
-  padding: 1,4rem;
-  overflow: hidden;
-}
-
-.swiper-slide {
+.carouselWrapper :global(.swiper-slide) {
   display: flex;
   justify-content: center;
-}
-
-.mySwiper .tile {
-  width: 100%;
-  max-width: 200px;
 }
 
 .carouselWrapper :global(.swiper-button-next),
 .carouselWrapper :global(.swiper-button-prev) {
   color: var(--color-accent);
-  transition: transform 0.2s ease;
-}
-
-.carouselWrapper :global(.swiper-button-next:hover),
-.carouselWrapper :global(.swiper-button-prev:hover) {
-  transform: scale(1.0);
-}
-
-.carouselWrapper :global(.swiper-pagination-bullet) {
-  background: #ccc;
-  opacity: 1;
 }
 
 .carouselWrapper :global(.swiper-pagination-bullet-active) {

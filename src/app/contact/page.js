@@ -1,109 +1,24 @@
-"use client";
-
-import styles from "@/styles/theme.module.css";
+// src/app/contact/page.js
 import Link from "next/link";
+import styles from "@/styles/theme.module.css";
 
 export default function ContactPage() {
   return (
     <>
-      {/* HERO SECTION */}
-      <section className={styles.sectionLight}>
-        <div
-          style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}
-        >
+      {/* CONTACT INTRO — LIGHT SECTION */}
+      <section className={`${styles.section} ${styles.sectionLight}`}>
+        <div className={styles.centered}>
           <h1 className={styles.heading}>Contact Us</h1>
-          <p
-            className={styles.paragraph}
-            style={{ marginTop: "0.5rem", fontSize: "1.1rem" }}
-          >
+          <p className={styles.paragraph}>
             We warmly invite you to reach out to Wood House i Tranås AB to
             discuss partnerships, dealership opportunities, or any questions
-            regarding our products and services.
+            regarding our products and services. We value open dialogue and look
+            forward to supporting you with our extensive expertise and dedicated
+            customer service.
           </p>
-        </div>
-      </section>
-
-      {/* FORM SECTION */}
-      <section className={styles.sectionDark}>
-        <div
-          style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}
-        >
-          <p
-            className={styles.paragraph}
-            style={{ color: "#fff", marginBottom: "2rem" }}
-          >
-            We value open dialogue and look forward to supporting you with our
-            extensive expertise and dedicated customer service.
-          </p>
-
-          <form
-            style={{ display: "grid", gap: "1rem", textAlign: "left" }}
-            onSubmit={(e) => {
-              e.preventDefault();
-              const formData = new FormData(e.target);
-              const name = formData.get("name").trim();
-              const email = formData.get("email").trim();
-              const message = formData.get("message").trim();
-
-              if (!name || !email || !message) {
-                alert("All fields are required.");
-                return;
-              }
-
-              if (!/\S+@\S+\.\S+/.test(email)) {
-                alert("Please enter a valid email address.");
-                return;
-              }
-
-              alert("Form submitted successfully!");
-              // Add further processing logic here, e.g., sending data to a server
-            }}
-          >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-              style={{
-                padding: "0.75rem",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                fontSize: "1rem",
-              }}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              style={{
-                padding: "0.75rem",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                fontSize: "1rem",
-              }}
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows={5}
-              required
-              style={{
-                padding: "0.75rem",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                fontSize: "1rem",
-                resize: "vertical",
-              }}
-            />
-            <button
-              type="submit"
-              className={styles.btnPrimary}
-              style={{ marginTop: "0.5rem" }}
-            >
-              Send Message
-            </button>
-          </form>
+          <Link href="mailto:info@woodhouse.se" className={styles.btnPrimary}>
+            Email Us →
+          </Link>
         </div>
       </section>
     </>

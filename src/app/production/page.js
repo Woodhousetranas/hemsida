@@ -1,123 +1,46 @@
-"use client";
-
-import Image from "next/image";
+// src/app/production/page.js
 import Link from "next/link";
 import styles from "@/styles/theme.module.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-fade";
-
-const images = [
-  "/images/production1.jpg",
-  "/images/production2.jpg",
-  "/images/production3.jpg",
-  "/images/falck-ponti.jpg",
-];
 
 export default function ProductionPage() {
   return (
     <>
-      {/* HERO TITLE */}
-      <section className={styles.sectionLight}>
-        <div
-          style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}
-        >
-          <h1 className={styles.heading}>Production</h1>
-          <p
-            className={styles.paragraph}
-            style={{ marginTop: "0.5rem", fontSize: "1.1rem" }}
-          >
-            <strong>Swedish woodworking meets global excellence.</strong>
-          </p>
-        </div>
+      {/* MANUFACTURING — ONE LIGHT SECTION WITH TWO PARAGRAPHS */}
+      <section className={`${styles.section} ${styles.sectionLight}`}>
+        <div className={styles.centered}>
+          <h1 className={styles.heading}>Manufacturing</h1>
 
-        {/* FADE IMAGE CAROUSEL */}
-        <div
-          style={{
-            maxWidth: "1000px",
-            margin: "2rem auto",
-            borderRadius: "12px",
-            overflow: "hidden",
-          }}
-        >
-          <Swiper
-            effect="fade"
-            loop
-            autoplay={{ delay: 3500, disableOnInteraction: false }}
-            modules={[Autoplay, EffectFade]}
-            style={{ height: "450px" }}
-          >
-            {images.map((src, index) => (
-              <SwiperSlide key={index}>
-                <Image
-                  src={src}
-                  alt={`Production image ${index + 1}`}
-                  fill
-                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-
-      {/* WHITE TEXT SECTION */}
-      <section className={styles.sectionLight}>
-        <div
-          style={{ maxWidth: "850px", margin: "0 auto", textAlign: "center" }}
-        >
           <p className={styles.paragraph}>
             Our state-of-the-art manufacturing facility in Tranås is at the core
             of Wood House’s operations. Here, traditional Swedish woodworking
             skills seamlessly integrate with cutting-edge technology, resulting
-            in world-class table tennis blades trusted by elite players
-            globally.
-            <br />
-            <br />
-            Esteemed brands such as Donic, Yasaka, and Nittaku rely on our
-            facility for premium blade production. Every step – from selecting
-            the finest woods to rigorous quality checks – is carried out with
-            unmatched precision by our expert craftsmen.
+            in the production of world-class table tennis blades renowned for
+            their unmatched quality. Esteemed brands such as Donic, Yasaka, and
+            Nittaku consistently entrust us with crafting their premium blades,
+            relied upon by elite players globally.
           </p>
-        </div>
-      </section>
 
-      {/* DARK TEXT SECTION */}
-      <section className={styles.sectionDark}>
-        <div
-          style={{ maxWidth: "850px", margin: "0 auto", textAlign: "center" }}
-        >
-          <p
-            className={styles.paragraph}
-            style={{ color: "var(--color-white)" }}
-          >
-            Swedish-made blades have become a hallmark of innovation and
-            reliability. At Wood House, we proudly uphold this legacy. Players
-            across the world rely on our products for their craftsmanship,
-            consistency, and pure Swedish quality.
-            <br />
-            <br />
-            Each blade is the result of decades of expertise – built to help
-            players perform at their absolute best.
-            <br />
-            <strong> Made in Sweden – Powered by Wood House.</strong>
+          <p className={styles.paragraph}>
+            Our highly skilled craftsmen meticulously oversee every step of the
+            production process—from the careful selection of superior wood
+            species to precision assembly, rigorous quality checks, and
+            immaculate final finishing. This meticulous attention to detail
+            ensures that each blade achieves consistent excellence and optimal
+            performance, perfectly balancing speed, control, and tactile
+            feedback. Swedish-made table tennis blades enjoy a distinguished
+            reputation worldwide, synonymous with innovation, durability, and
+            precision. At Wood House, we proudly uphold and enhance this
+            tradition. Players around the globe trust our blades not only for
+            their exceptional craftsmanship and performance but also for
+            embodying genuine Swedish quality and dedication. Each blade crafted
+            at Wood House represents decades of experience, expertise, and a
+            commitment to excellence, allowing players to perform confidently at
+            their highest potential. Made in Sweden – Powered by Wood House
           </p>
-        </div>
-      </section>
 
-      {/* CTA SECTION */}
-      <section className={styles.sectionLight}>
-        <div
-          style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}
-        >
-          <h2 className={styles.heading}>Curious about our blades?</h2>
-          <p className={styles.paragraph} style={{ marginBottom: "1.5rem" }}>
-            Reach out to learn more about our production, product partnerships,
-            or how to collaborate.
-          </p>
+          {/* CTA BUTTON */}
           <Link href="/contact" className={styles.btnPrimary}>
-            Contact Us →
+            Contact Us to Learn More →
           </Link>
         </div>
       </section>

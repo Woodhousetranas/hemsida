@@ -1,130 +1,52 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
+// src/app/about-us/page.js
 import styles from "@/styles/theme.module.css";
 
-export default function AboutUsPage() {
+export default function AboutPage() {
   return (
-    <main>
-      {/* Hero Section */}
-      <section
-        style={{
-          position: "relative",
-          height: "60vh",
-          backgroundImage: "url(/images/about-us.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#fff",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "rgba(0, 0, 0, 0.5)",
-          }}
-        ></div>
-        <div style={{ zIndex: 1, padding: "1rem" }}>
-          <h1 style={{ fontSize: "3rem", fontWeight: 700 }}>
-            About Wood House AB
-          </h1>
-        </div>
-      </section>
-
-      {/* Company Intro */}
-      <section className={styles.sectionLight}>
-        <div
-          style={{ maxWidth: "850px", margin: "0 auto", textAlign: "center" }}
-        >
-          <h2 className={styles.heading}>A Swedish Legacy in Table Tennis</h2>
+    <>
+      {/* INTRODUCTION — WHITE SECTION */}
+      <section className={`${styles.section} ${styles.sectionLight}`}>
+        <div className={styles.centered}>
+          <h1 className={styles.heading}>About Wood House AB</h1>
           <p className={styles.paragraph}>
-            Wood House AB is a premium Swedish manufacturer of professional
-            table tennis blades. Based in Tranås, we combine Scandinavian
-            craftsmanship with world-class technology to deliver
-            high-performance equipment for players at all levels. We proudly
-            produce for some of the most respected names in the sport —{" "}
-            <strong>Yasaka, Donic, and Nittaku</strong>.
+            Wood House i Tranås AB is a Swedish company renowned for its
+            extensive expertise and experience in the table tennis industry.
+            Established in the early 1990s, our company has evolved
+            significantly over the years, continuously expanding our presence
+            and reputation. Today, as Wood House i Tranås AB, we proudly serve
+            as a key player in the international table tennis market.
           </p>
-        </div>
-      </section>
-
-      {/* Philosophy Section */}
-      <section className={styles.sectionDark}>
-        <div
-          style={{ maxWidth: "850px", margin: "0 auto", textAlign: "center" }}
-        >
-          <h2 className={styles.heading}>Our Philosophy</h2>
           <p className={styles.paragraph}>
-            Every blade we make reflects our core values: precision,
-            performance, and passion. We believe in long-term partnerships,
-            sustainable production, and constant innovation. Our team consists
-            of dedicated specialists who ensure that each product meets the
-            highest quality standards — from material selection to final finish.
+            With over 25 years of dedicated experience, we manufacture and
+            distribute some of the world's most prestigious table tennis brands
+            – Donic, Nittaku, and Yasaka. Our products are trusted by both
+            recreational enthusiasts and world champions alike. Our team in
+            Tranås combines traditional Swedish craftsmanship with advanced
+            production techniques, delivering premium-quality table tennis
+            blades. Through our international partnerships with Germany (Donic)
+            and Japan (Nittaku and Yasaka), we continuously drive innovation and
+            excellence.
           </p>
         </div>
       </section>
 
-      {/* Brands Overview */}
-      <section className={styles.sectionLight}>
-        <div style={{ textAlign: "center" }}>
-          <h2 className={styles.heading}>Trusted by Global Brands</h2>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "3rem",
-            marginTop: "2rem",
-          }}
-        >
-          <Image
-            src="/images/yasaka-logo.png"
-            alt="Yasaka"
-            width={160}
-            height={60}
-            style={{ objectFit: "contain", filter: "grayscale(100%)" }}
-          />
-          <Image
-            src="/images/donic-logo.png"
-            alt="Donic"
-            width={160}
-            height={60}
-            style={{ objectFit: "contain", filter: "grayscale(100%)" }}
-          />
-          <Image
-            src="/images/nittaku-logo.png"
-            alt="Nittaku"
-            width={160}
-            height={60}
-            style={{ objectFit: "contain", filter: "grayscale(100%)" }}
-          />
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className={styles.sectionDark}>
-        <div
-          style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}
-        >
-          <h2 className={styles.heading} style={{ color: "#fff" }}>
-            Ready to Learn More?
-          </h2>
-          <p className={styles.paragraph} style={{ color: "#ddd" }}>
-            Discover our production process and explore the precision behind
-            every blade we craft.
+      {/* PHILOSOPHY & HERITAGE — DARK SECTION */}
+      <section className={`${styles.section} ${styles.sectionDark}`}>
+        <div className={styles.centered}>
+          <p
+            className={styles.paragraph}
+            style={{ color: "var(--color-white)" }}
+          >
+            At Wood House, we take pride in our contribution to the sport's rich
+            heritage and promising future. Passion for table tennis drives our
+            mission to deliver reliable products, unmatched expertise, and
+            exceptional service to all our customers and partners. Each blade
+            crafted at Wood House represents decades of experience, expertise,
+            and a commitment to excellence, allowing players to perform
+            confidently at their highest potential.
           </p>
-          <Link href="/production" className={styles.btnPrimary}>
-            Explore Our Production →
-          </Link>
         </div>
       </section>
-    </main>
+    </>
   );
 }
