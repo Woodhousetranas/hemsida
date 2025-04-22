@@ -1,31 +1,38 @@
 /* ====== GLOBAL RESET & VARIABLER ====== */
 
-/* Globala färg- och typografivariabler */
+/* 1. Globala färg‑ och typografivariabler */
 :root {
+  /* Färger */
   --color-background: #f9f9f9;
   --color-text:       #1f1f1f;
   --color-accent:     #004aad;
   --color-white:      #ffffff;
   --color-dark:       #222222;
 
+  /* Typsnitt */
   --font-base:        'Inter', sans-serif;
   --font-heading:     'Bebas Neue', sans-serif;
 
+  /* Teckenstorlekar */
   --fz-base:          1rem;
   --fz-h1:            3rem;
   --fz-h2:            2.5rem;
   --fz-h3:            1.75rem;
 
+  /* Radavstånd */
   --lh-base:          1.6;
 
+  /* Mellanrum */
   --space-xs:         0.5rem;
   --space-sm:         1rem;
   --space-md:         2rem;
   --space-lg:         4rem;
 }
 
-/* Reset och grundinställningar */
-* {
+/* 2. Reset och grundinställningar */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -33,6 +40,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 100%; /* 1rem = 16px */
 }
 
 body {
@@ -40,16 +48,53 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: var(--lh-base);
+  min-height: 100vh;
 }
 
-/* Länk‑reset */
+/* 3. Länk‑reset */
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
-/* Bilder maxbredd */
+/* 4. Bilder */
 img {
   max-width: 100%;
   display: block;
 }
+
+/* 5. Standardknappar (kan plockas ut i theme.module.css om du vill) */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* 6. Listor */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 7. Formelement */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* 8. Skrollbar (valfritt) */
+/*
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 4px;
+}
+*/

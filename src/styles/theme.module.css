@@ -1,160 +1,313 @@
-/* ====== SEKCIONES ====== */
-.section {
-  padding: var(--space-lg) var(--space-sm);
-}
+/* ==============================================
+   ==========  theme.module.css  ================
+   ============================================== */
 
-.sectionLight {
-  background-color: var(--color-white);
-}
+/* ——————————————————————————————————————
+   VARIABLER (definierade i globals.css)
+   —————————————————————————————————————— */
+/* 
+  --space-xs, --space-sm, --space-md, --space-lg
+  --color-white, --color-dark, --color-text, --color-accent
+  --font-heading, --fz-h2, --fz-base, --lh-base
+*/
 
-.sectionDark {
-  background-color: var(--color-dark);
-  color: var(--color-white);
-}
-
-/* ====== RUBRIKER ====== */
-.heading,
-.sectionTitle {
-  font-family: var(--font-heading);
-  font-size: var(--fz-h2);
-  text-align: center;
-  position: relative;
-  margin-bottom: var(--space-md);
-}
-
-.heading::after,
-.sectionTitle::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: var(--color-accent);
-  margin: var(--space-xs) auto 0;
-  border-radius: 2px;
-}
-
-/* ====== PARAGRAFER ====== */
-.paragraph {
-  font-size: var(--fz-base);
-  line-height: var(--lh-base);
-  margin-bottom: var(--space-md);
-}
-
-/* ====== UTILITIES ====== */
-.centered {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* ====== KNAPPAR ====== */
-.btnPrimary {
-  display: inline-block;
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: 6px;
-  font-weight: 600;
-  transition: transform .2s, box-shadow .2s, background .2s;
-}
-
-.btnPrimary:hover {
-  background-color: #003580;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.btnSecondary {
-  display: inline-block;
-  background: none;
-  border: 2px solid var(--color-accent);
-  color: var(--color-accent);
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 6px;
-  font-weight: 500;
-  transition: transform .2s, box-shadow .2s, background .2s, color .2s;
-}
-
-.btnSecondary:hover {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* ====== TILE / KORT ====== */
-.tile {
-  background-color: var(--color-white);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  padding: var(--space-md);
-  text-align: center;
-  transition: transform .2s, box-shadow .2s;
-}
-
-.tile:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-}
-
-/* ====== GRID ====== */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap: var(--space-lg);
-  margin: 0 auto;
-}
-
-/* ====== HERO ====== */
-.hero {
-  position: relative;
-  height: 90vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--color-white);
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-}
-
-.heroContent {
-  position: relative;
-  z-index: 1;
-  padding: var(--space-md);
-}
-
-/* ====== FOOTER ====== */
-.footer {
-  background-color: var(--color-dark);
-  color: var(--color-white);
-  text-align: center;
-  padding: var(--space-md) var(--space-sm);
-  font-size: 0.9rem;
-}
-
-/* ====== SWIPER OVERRIDES ====== */
-.carouselWrapper :global(.swiper) {
-  padding: var(--space-sm) 0;
-}
-
-.carouselWrapper :global(.swiper-slide) {
-  display: flex;
-  justify-content: center;
-}
-
-.carouselWrapper :global(.swiper-button-next),
-.carouselWrapper :global(.swiper-button-prev) {
-  color: var(--color-accent);
-}
-
-.carouselWrapper :global(.swiper-pagination-bullet-active) {
-  background: var(--color-accent);
-}
+/* ——————————————————————————————————————
+   SEKCIONER
+   —————————————————————————————————————— */
+   .section,
+   .sectionLight,
+   .sectionDark {
+     padding: var(--space-lg) var(--space-sm);
+   }
+   
+   .sectionLight {
+     background-color: var(--color-white);
+   }
+   
+   .sectionDark {
+     background-color: var(--color-dark);
+     color: var(--color-white);
+   }
+   
+   /* ——————————————————————————————————————
+      RUBRIKER
+      —————————————————————————————————————— */
+   .heading,
+   .sectionTitle {
+     font-family: var(--font-heading);
+     font-size: var(--fz-h2);
+     text-align: center;
+     position: relative;
+     margin-bottom: var(--space-md);
+   }
+   
+   .heading::after,
+   .sectionTitle::after {
+     content: '';
+     display: block;
+     width: 60px;
+     height: 3px;
+     background-color: var(--color-accent);
+     margin: var(--space-xs) auto 0;
+     border-radius: 2px;
+   }
+   
+   /* ——————————————————————————————————————
+      PARAGRAFER
+      —————————————————————————————————————— */
+   .paragraph {
+     font-size: var(--fz-base);
+     line-height: var(--lh-base);
+     margin-bottom: var(--space-md);
+   }
+   
+   /* ——————————————————————————————————————
+      UTILITY
+      —————————————————————————————————————— */
+   .centered {
+     max-width: 800px;
+     margin: 0 auto;
+     text-align: center;
+   }
+   
+   /* ——————————————————————————————————————
+      KNAPPAR
+      —————————————————————————————————————— */
+   .btnPrimary {
+     display: inline-block;
+     background-color: var(--color-accent);
+     color: var(--color-white);
+     padding: var(--space-sm) var(--space-md);
+     border-radius: 6px;
+     font-weight: 600;
+     transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+   }
+   
+   .btnPrimary:hover {
+     background-color: #003580;
+     transform: translateY(-2px);
+     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+   }
+   
+   .btnSecondary {
+     display: inline-block;
+     background: none;
+     border: 2px solid var(--color-accent);
+     color: var(--color-accent);
+     padding: var(--space-xs) var(--space-sm);
+     border-radius: 6px;
+     font-weight: 500;
+     transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+   }
+   
+   .btnSecondary:hover {
+     background-color: var(--color-accent);
+     color: var(--color-white);
+     transform: translateY(-1px);
+     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+   }
+   
+   /* ——————————————————————————————————————
+      TILE / KORT
+      —————————————————————————————————————— */
+   .tile {
+     background-color: var(--color-white);
+     border-radius: 12px;
+     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+     padding: var(--space-md);
+     text-align: center;
+     transition: transform 0.2s, box-shadow 0.2s;
+   }
+   
+   .tile:hover {
+     transform: translateY(-6px);
+     box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+   }
+   
+   /* ——————————————————————————————————————
+      GRID
+      —————————————————————————————————————— */
+   .grid-3 {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+     gap: var(--space-lg);
+     margin: 0 auto;
+   }
+   
+   /* ——————————————————————————————————————
+      HERO
+      —————————————————————————————————————— */
+   .hero {
+     position: relative;
+     height: 90vh;
+     background-size: cover;
+     background-position: center;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     color: var(--color-white);
+   }
+   
+   .hero::before {
+     content: "";
+     position: absolute;
+     inset: 0;
+     background: rgba(0,0,0,0.6);
+   }
+   
+   .heroContent {
+     position: relative;
+     z-index: 1;
+     padding: var(--space-md);
+   }
+   
+   .heroTitle {
+     font-size: 3rem;
+     font-weight: 700;
+     margin-bottom: 1.5rem;
+     line-height: 1.2;
+   }
+   
+   .heroButton {
+     display: inline-block;
+     background: var(--color-white);
+     color: var(--color-dark);
+     padding: 0.75rem 1.5rem;
+     border-radius: 6px;
+     font-weight: 600;
+     text-decoration: none;
+     transition: background 0.2s ease, transform 0.2s ease;
+   }
+   
+   .heroButton:hover {
+     background: #f0f0f0;
+     transform: translateY(-2px);
+   }
+   
+   /* ——————————————————————————————————————
+      HEADER NAVIGATION
+      —————————————————————————————————————— */
+   .header {
+     background: var(--color-white);
+     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+   }
+   
+   .logo {
+     font-family: 'Bebas Neue', sans-serif;
+     font-size: 1.5rem;
+     letter-spacing: 1px;
+     color: var(--color-text);
+     text-decoration: none;
+   }
+   
+   .navLink {
+     color: var(--color-text);
+     font-weight: 500;
+     text-transform: uppercase;
+     transition: color 0.2s;
+   }
+   
+   .navLink:hover {
+     color: var(--color-accent);
+   }
+   
+   .mobileMenuButton {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     padding: var(--space-xs);
+     color: var(--color-text);
+     background: none;
+     border: none;
+     cursor: pointer;
+     transition: color 0.2s;
+   }
+   
+   .mobileMenuButton:hover {
+     color: var(--color-accent);
+   }
+   
+   /* ——————————————————————————————————————
+      FAQ (Disclosure)
+      —————————————————————————————————————— */
+   .faqButton {
+     background: var(--color-white);
+     color: var(--color-text);
+     border: 1px solid var(--color-accent);
+     padding: 0.75rem 1rem;
+     border-radius: 8px;
+     transition: background 0.2s, transform 0.2s;
+     width: 100%;
+     text-align: left;
+     font-weight: 500;
+   }
+   
+   .faqButton:hover {
+     background: var(--color-accent);
+     color: var(--color-white);
+   }
+   
+   .faqPanel {
+     padding: 0.75rem 1rem;
+     border-top: 1px solid #e0e0e0;
+     color: var(--color-text);
+   }
+   
+   /* ——————————————————————————————————————
+      MODAL (Dialog)
+      —————————————————————————————————————— */
+   .modal {
+     background: var(--color-white);
+     padding: 2rem;
+     border-radius: 12px;
+     max-width: 500px;
+     width: 90%;
+     position: relative;
+     box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+     text-align: center;
+   }
+   
+   .closeButton {
+     position: absolute;
+     top: var(--space-xs);
+     right: var(--space-xs);
+     background: none;
+     border: none;
+     font-size: 1.5rem;
+     cursor: pointer;
+   }
+   
+   .modalImage {
+     width: 150px;
+     height: 150px;
+     border-radius: 50%;
+     object-fit: cover;
+     margin: 0 auto 1rem;
+   }
+   
+   /* ——————————————————————————————————————
+      SWIPER / KARUSELL
+      —————————————————————————————————————— */
+   .carouselWrapper :global(.swiper) {
+     padding: var(--space-sm) 0;
+   }
+   
+   .carouselWrapper :global(.swiper-slide) {
+     display: flex;
+     justify-content: center;
+   }
+   
+   .carouselWrapper :global(.swiper-button-next),
+   .carouselWrapper :global(.swiper-button-prev) {
+     color: var(--color-accent);
+   }
+   
+   .carouselWrapper :global(.swiper-pagination-bullet-active) {
+     background: var(--color-accent);
+   }
+   
+   /* ================================================
+      =============  SLUT PÅ theme.module.css  ========
+      ================================================ */
+   

@@ -1,45 +1,71 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import styles from "@/styles/theme.module.css";
 
 export default function Header() {
   return (
-    <header
-      style={{
-        padding: "2rem 1rem 1rem",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        borderBottom: "1px solid #eee",
-        background: "#fff",
-        position: "sticky",
-        top: 0,
-        zIndex: 1000,
-      }}
-    >
-      {/* Logo */}
-      <Link href="/" style={{ marginBottom: "1rem" }}>
-        <Image
-          src="/images/woodhouse-logo.png"
-          alt="Wood House Logo"
-          width={280}
-          height={100}
-          style={{ objectFit: "contain" }}
-        />
-      </Link>
+    <Disclosure as="header" className={styles.header}>
+      {({ open }) => (
+        <>
+          <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-4">
+            {/* Logo */}
+            <Link href="/" className={styles.logo}>
+              Wood House AB
+            </Link>
 
-      {/* Navigation Links */}
-      <nav className={styles.navLinks}>
-        <Link href="/">Home</Link>
-        <Link href="/about-us">About Us</Link>
-        <Link href="/team">Team</Link>
-        <Link href="/agencies">Agencies</Link>
-        <Link href="/production">Production</Link>
-        <Link href="/contact">Contact</Link>
-        <Link href="/posts">Posts</Link>
-      </nav>
-    </header>
+            {/* Desktop‑nav */}
+            <nav className="hidden md:flex space-x-8">
+              {[
+                ["Home", "/"],
+                ["About Us", "/about-us"],
+                ["Team", "/team"],
+                ["Agencies", "/agencies"],
+                ["Production", "/production"],
+                ["Contact", "/contact"],
+              ].map(([label, href]) => (
+                <Link key={href} href={href} className={styles.navLink}>
+                  {label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Mobile toggle */}
+            <Disclosure.Button className={styles.mobileMenuButton}>
+              {open ? (
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              )}
+            </Disclosure.Button>
+          </div>
+
+          {/* Mobile menu */}
+          <Disclosure.Panel className="md:hidden bg-white">
+            <nav className="flex flex-col px-4 pb-4 space-y-1">
+              {[
+                ["Home", "/"],
+                ["About Us", "/about-us"],
+                ["Team", "/team"],
+                ["Agencies", "/agencies"],
+                ["Production", "/production"],
+                ["Contact", "/contact"],
+              ].map(([label, href]) => (
+                <Disclosure.Button
+                  key={href}
+                  as={Link}
+                  href={href}
+                  className="block py-2 text-gray-800 hover:text-[--color-accent]"
+                >
+                  {label}
+                </Disclosure.Button>
+              ))}
+            </nav>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   );
 }
