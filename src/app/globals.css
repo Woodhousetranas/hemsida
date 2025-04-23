@@ -1,4 +1,6 @@
-/* ====== GLOBAL RESET & VARIABLER ====== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* 1. Globala färg‑ och typografivariabler */
 :root {

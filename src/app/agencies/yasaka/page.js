@@ -1,110 +1,120 @@
+// src/app/agencies/yasaka/page.js
 "use client";
-
+import { motion } from "framer-motion";
+import Container from "@/components/Container";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "@/styles/theme.module.css";
 
 export default function YasakaPage() {
   return (
     <>
-      {/* HERO SECTION */}
-      <section className={styles.sectionLight}>
-        <div
-          style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto" }}
-        >
-          <h1 className={styles.heading}>Yasaka</h1>
-          <p
-            className={styles.paragraph}
-            style={{ marginTop: "0.5rem", fontSize: "1.1rem" }}
-          >
-            <strong>Japanese innovation meets Swedish craftsmanship.</strong>
+      {/* HERO */}
+      <motion.section
+        className={`${styles.sectionLight}`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <Container as="div" className="text-center">
+          <h2 className={styles.sectionTitle}>Yasaka</h2>
+          <p className={`${styles.paragraph} font-semibold text-lg mt-2`}>
+            Japanese innovation meets Swedish craftsmanship.
           </p>
-        </div>
-      </section>
+        </Container>
+      </motion.section>
 
       {/* BRAND STORY */}
-      <section className={styles.sectionLight}>
-        <div
-          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
-        >
+      <motion.section
+        className={`${styles.sectionLight} pt-4`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
+        <Container as="div" className="text-center">
           <p className={styles.paragraph}>
             Yasaka combines legendary Japanese innovation with premium Swedish
-            craftsmanship. Established in 1947 and renowned for their
-            groundbreaking Mark V rubber, Yasaka continues to innovate with
-            top-quality products like the Rakza series rubbers and a wide
-            selection of blades meticulously crafted at our Tranås facility.
+            craftsmanship. Established in 1947 and renowned for their Mark V
+            rubber, Yasaka continues to innovate with top‑quality products like
+            the Rakza series rubbers and a wide selection of blades meticulously
+            crafted at our Tranås facility.
           </p>
-        </div>
-      </section>
+        </Container>
+      </motion.section>
 
       {/* PHILOSOPHY & DISTRIBUTION */}
-      <section className={styles.sectionDark}>
-        <div
-          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
-        >
-          <p
-            className={styles.paragraph}
-            style={{ color: "var(--color-white)" }}
-          >
+      <motion.section
+        className={`${styles.sectionDark} pt-4`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <Container as="div" className="text-center">
+          <p className={`${styles.paragraph} text-white`}>
             As the exclusive distributor for Yasaka across Europe, we maintain a
             robust network, providing swift and efficient access to retailers
             and clubs. This ensures Yasaka remains a trusted and preferred
             choice for both amateur and professional players throughout the
             continent.
           </p>
-        </div>
-      </section>
+        </Container>
+      </motion.section>
 
       {/* PRODUCT STRENGTHS */}
-      <section className={styles.sectionLight}>
-        <div
-          style={{ textAlign: "center", maxWidth: "850px", margin: "0 auto" }}
-        >
-          <h2 className={styles.heading}>Why Players Choose Yasaka</h2>
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              marginTop: "1.5rem",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-              gap: "1.5rem",
-            }}
-          >
+      <motion.section
+        className={`${styles.sectionLight} pt-4`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
+        <Container as="div">
+          <h3 className={styles.sectionTitle}>Why Players Choose Yasaka</h3>
+          <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <li className={styles.tile}>
               <strong>Rakza Series</strong>
-              <p style={{ fontSize: "0.95rem", color: "#555" }}>
-                Easy-to-play high performance rubbers trusted by pros and
+              <p className="mt-2 text-sm text-gray-600">
+                Easy‑to‑play high‑performance rubbers trusted by pros and
                 amateurs.
               </p>
             </li>
             <li className={styles.tile}>
               <strong>Made in Tranås</strong>
-              <p style={{ fontSize: "0.95rem", color: "#555" }}>
+              <p className="mt-2 text-sm text-gray-600">
                 Blades built with precision and pride in Sweden.
               </p>
             </li>
             <li className={styles.tile}>
               <strong>Mark V Legacy</strong>
-              <p style={{ fontSize: "0.95rem", color: "#555" }}>
+              <p className="mt-2 text-sm text-gray-600">
                 A true classic still used around the world by loyal fans.
               </p>
             </li>
           </ul>
-        </div>
-      </section>
+        </Container>
+      </motion.section>
 
       {/* CTA */}
-      <section className={styles.sectionLight}>
-        <div style={{ textAlign: "center", paddingTop: "1rem" }}>
+      <motion.section
+        className={`${styles.sectionLight} pt-6`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+      >
+        <Container as="div" className="text-center">
           <Link
             href="https://yasakatabletennis.com"
             className={styles.btnPrimary}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Visit YasakaTableTennis.com →
+            Visit YasakaTableTennis.com &rarr;
           </Link>
-        </div>
-      </section>
+        </Container>
+      </motion.section>
     </>
   );
 }

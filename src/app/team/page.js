@@ -1,8 +1,9 @@
 // src/app/team/page.js
 "use client";
-
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Container from "@/components/Container";
 import styles from "@/styles/theme.module.css";
 import TeamMemberModal from "@/components/TeamMemberModal";
 
@@ -60,39 +61,56 @@ export default function TeamPage() {
 
   return (
     <>
-      <section className={`${styles.section} ${styles.sectionLight}`}>
-        <div className={styles.centered}>
-          <h1 className={styles.heading}>Meet the Wood House Team</h1>
-        </div>
-        <div className={styles["grid-3"]}>
-          {team.map((member) => (
-            <div
-              key={member.name}
-              className={styles.tile}
-              onClick={() => setSelectedMember(member)}
-              style={{ cursor: "pointer" }}
-            >
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={150}
-                height={150}
-                style={{ borderRadius: "50%", objectFit: "cover" }}
-              />
-              <h3 style={{ marginTop: "var(--space-sm)", fontWeight: 600 }}>
-                {member.name}
-              </h3>
-              <p style={{ color: "#555" }}>{member.title}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <motion.section
+        className={`${styles.section} ${styles.sectionLight}`}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <Container className="text-center">
+          <h2 className={styles.sectionTitle}>Meet the Wood House Team</h2>
+        </Container>
+
+        <Container as="div" className="mt-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {team.map((member) => (
+              <motion.div
+                key={member.name}
+                className={styles.tile + " cursor-pointer"}
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => setSelectedMember(member)}
+              >
+                <div className="w-36 h-36 mx-auto overflow-hidden rounded-full">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={144}
+                    height={144}
+                    className="object-cover"
+                    placeholder="blur"
+                  />
+                </div>
+                <h3 className="mt-4 text-center text-lg font-semibold text-gray-800">
+                  {member.name}
+                </h3>
+                <p className="text-center text-sm text-gray-600">
+                  {member.title}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </Container>
+      </motion.section>
 
       {/* Modal */}
-      <TeamMemberModal
-        member={selectedMember}
-        onClose={() => setSelectedMember(null)}
-      />
+      {selectedMember && (
+        <TeamMemberModal
+          member={selectedMember}
+          onClose={() => setSelectedMember(null)}
+        />
+      )}
     </>
   );
 }
